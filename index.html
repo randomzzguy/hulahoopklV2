@@ -347,16 +347,21 @@
         .portfolio-info h3 { margin: 0 0 0.25rem 0; color: #eef2f7; }
         .portfolio-info p { margin: 0 0 0.75rem 0; color: #eef2f7; opacity: 0.85; }
         .portfolio-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .tag { padding: 0.25rem 0.6rem; border-radius: 9999px; font-size: 0.8rem; background: rgba(147,197,253,0.15); color: #93c5fd; }
+        .tag { padding: 0.25rem 0.6rem; border-radius: 9999px; font-size: 0.8rem; background: rgba(147,197,253,0.15); color: #93c5fd; text-transform: uppercase; }
 
         /* CTA + Footer */
         .cta-block { padding: 6rem 2rem; text-align: center; }
+        .cta-inner { max-width: 900px; margin: 0 auto; display: grid; gap: 1.75rem; justify-items: center; }
         .cta-block h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 1rem 0; }
         .cta-block p { max-width: 700px; margin: 0 auto 2rem auto; opacity: 0.85; }
         .footer-modern { background: #0f172a; color: #eef2f7; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.10); }
-        .contact-inline-info { margin-top: 1rem; color: #e5e7eb; }
+        .contact-inline-info { margin-top: 1rem; color: #e5e7eb; text-align: center; }
         .contact-inline-info a { color: #93c5fd; text-decoration: none; font-weight: 700; }
         .contact-inline-info a:hover { text-decoration: underline; }
+
+        /* Contact section spacing tweaks */
+        .cta-block .contact-inline-info p { margin: 0 0 0.25rem 0; line-height: 1.35; text-align: center; }
+        .cta-block .btn-primary-dynamic { margin-top: 2.5rem; }
 
         /* Contact Modal */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; align-items: center; justify-content: center; z-index: 2000; }
@@ -656,7 +661,7 @@
                     <div class="portfolio-info">
                         <h3>Project 1</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Social Media</span><span class="tag">Branding</span></div>
+                        <div class="portfolio-tags"><span class="tag">social media management</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 2" data-desc="Creator program · Apr–Jun 2024 · Venue Beta" data-images="assets/marketing.svg|assets/talent.svg|assets/event.svg">
@@ -669,7 +674,7 @@
                     <div class="portfolio-info">
                         <h3>Project 2</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Talent</span><span class="tag">Digital</span></div>
+                        <div class="portfolio-tags"><span class="tag">social media management</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 3" data-desc="Festival activation · Sep 2023 · Venue Gamma" data-images="assets/HHLogo.svg|assets/hhSymbol.svg|assets/favicon-32x32.png">
@@ -682,7 +687,7 @@
                     <div class="portfolio-info">
                         <h3>Project 3</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Events</span><span class="tag">Social</span></div>
+                        <div class="portfolio-tags"><span class="tag">social media management</span></div>
                     </div>
                 </div>
                 <!-- Added projects -->
@@ -696,7 +701,7 @@
                     <div class="portfolio-info">
                         <h3>Project 4</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Branding</span><span class="tag">Design</span></div>
+                        <div class="portfolio-tags"><span class="tag">digital talent</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 5" data-desc="Influencer campaign · Aug 2024 · Venue Epsilon" data-images="assets/marketing.svg|assets/marketingBW.svg|assets/android-chrome-512x512.png">
@@ -709,7 +714,7 @@
                     <div class="portfolio-info">
                         <h3>Project 5</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Marketing</span><span class="tag">Social</span></div>
+                        <div class="portfolio-tags"><span class="tag">digital talent</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 6" data-desc="Talent showcase · May 2024 · Venue Zeta" data-images="assets/talent.svg|assets/talentBW.svg|assets/apple-touch-icon.png">
@@ -722,7 +727,7 @@
                     <div class="portfolio-info">
                         <h3>Project 6</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Talent</span><span class="tag">Digital</span></div>
+                        <div class="portfolio-tags"><span class="tag">digital talent</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 7" data-desc="Event production · Nov 2023 · Venue Theta" data-images="assets/event.svg|assets/eventBW.svg|assets/favicon-16x16.png">
@@ -735,7 +740,7 @@
                     <div class="portfolio-info">
                         <h3>Project 7</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Events</span><span class="tag">Production</span></div>
+                        <div class="portfolio-tags"><span class="tag">event management</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 8" data-desc="Collaboration drive · Jan 2025 · Studio Lambda" data-images="assets/collab.svg|assets/collabBW.svg|assets/hhSymbol.svg">
@@ -748,7 +753,7 @@
                     <div class="portfolio-info">
                         <h3>Project 8</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Collaborations</span><span class="tag">Partnerships</span></div>
+                        <div class="portfolio-tags"><span class="tag">event management</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 9" data-desc="Community build · Feb 2025 · Venue Iota" data-images="assets/marketing.svg|assets/android-chrome-192x192.png|assets/android-chrome-512x512.png">
@@ -761,7 +766,7 @@
                     <div class="portfolio-info">
                         <h3>Project 9</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Community</span><span class="tag">Growth</span></div>
+                        <div class="portfolio-tags"><span class="tag">event management</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 10" data-desc="Brand strategy · Mar 2025 · Studio Kappa" data-images="assets/HHLogo.svg|assets/marketingBW.svg|assets/favicon-32x32.png">
@@ -774,7 +779,7 @@
                     <div class="portfolio-info">
                         <h3>Project 10</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Strategy</span><span class="tag">Branding</span></div>
+                        <div class="portfolio-tags"><span class="tag">collaborations</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 11" data-desc="Digital overhaul · Apr 2025 · Venue Mu" data-images="assets/android-chrome-512x512.png|assets/favicon-16x16.png|assets/apple-touch-icon.png">
@@ -787,7 +792,7 @@
                     <div class="portfolio-info">
                         <h3>Project 11</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Digital</span><span class="tag">Optimization</span></div>
+                        <div class="portfolio-tags"><span class="tag">collaborations</span></div>
                     </div>
                 </div>
                 <div class="portfolio-item reveal-animation" onclick="openProjectModal(event)" data-title="Project 12" data-desc="Scale initiative · May 2025 · Studio Nu" data-images="assets/talent.svg|assets/marketing.svg|assets/event.svg">
@@ -800,7 +805,7 @@
                     <div class="portfolio-info">
                         <h3>Project 12</h3>
                         <p>test</p>
-                        <div class="portfolio-tags"><span class="tag">Growth</span><span class="tag">Scaling</span></div>
+                        <div class="portfolio-tags"><span class="tag">collaborations</span></div>
                     </div>
                 </div>
             </div>
@@ -825,13 +830,13 @@
 
     <!-- CTA -->
     <section class="cta-block" id="contact">
-        <h2 class="text-gradient">Ready to create something extraordinary?</h2>
-        <p>Start your digital transformation journey today. Our team will reach out within 24 hours.</p>
-        <p>Alternatively, you can use the following email address to contact us: <a href="mailto:hello@hulahoopcreative.com">hello@hulahoopcreative.com</a></p>
-        <a href="#contact" class="btn-dynamic btn-primary-dynamic" onclick="openContactModal(event)">GET IN TOUCH</a>
-        <div class="contact-inline-info">
-            Alternatively, you can use the following email address to contact us: 
-            <a href="mailto:hello@hulahoopcreative.com">hello@hulahoopcreative.com</a>
+        <div class="cta-inner">
+            <h2 class="text-gradient">Ready to create something extraordinary?</h2>
+            <div class="contact-inline-info">
+                <p>Start your digital transformation journey today. Our team will reach out within 24 hours.</p>
+                <p>Alternatively, you can use the following email address to contact us: <a href="mailto:hello@hulahoopkl.com">hello@hulahoopkl.com</a></p>
+            </div>
+            <a href="#contact" class="btn-dynamic btn-primary-dynamic" onclick="openContactModal(event)">GET IN TOUCH</a>
         </div>
     </section>
     <!-- Contact Modal -->
