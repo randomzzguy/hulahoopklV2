@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hulahoop — Combined Showcase</title>
+    <title>Hulahoop — Creative Marketing</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -173,9 +173,11 @@
         .hero-content-split { width: 100%; max-width: 1100px; padding: 2rem 0; margin: 0 auto; position: relative; z-index: 1; }
         .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--accent-warm1), var(--accent-warm2)); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 700; margin-bottom: 2rem; animation: float 3s ease-in-out infinite; }
         @keyframes float { 0%,100%{ transform: translateY(0px);} 50%{ transform: translateY(-10px);} }
-        .hero-content-split h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.25rem; color: #e5e7eb; text-shadow: 0 2px 24px rgba(147, 197, 253, 0.08); white-space: nowrap; }
+        .hero-content-split h1 { font-size: clamp(2.2rem, 3.5vw, 3.4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.25rem; color: #e5e7eb; text-shadow: 0 2px 24px rgba(147, 197, 253, 0.08); white-space: nowrap; }
         .accent-text { background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { font-size: 1.2rem; color: #c9d2de; margin-bottom: 8rem; line-height: 1.6; }
+        .accent-text2 { background: linear-gradient(135deg, var(--accent-warm2), var(--accent-violet), var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }   
+        .accent-text3 { background: linear-gradient(135deg, var(--accent-warm1), var(--accent-warm2), var(--accent-violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: 2.0rem; color: #c9d2de; margin-bottom: 8rem; line-height: 1.6; }
         .hero-cta-group { display: flex; gap: 2rem; margin-bottom: 2.5rem; justify-content: center; }
         .hero-cta-group .btn-dynamic { text-transform: uppercase; letter-spacing: 0.06em; }
         .btn-dynamic { padding: 1.1rem 2.4rem; border-radius: 50px; font-weight: 800; font-size: 1rem; cursor: pointer; transition: all 0.4s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; position: relative; overflow: hidden; }
@@ -482,7 +484,6 @@
             <ul class="nav-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
             </ul>
             <div class="nav-actions">
@@ -497,8 +498,8 @@
             <div class="logo-hero reveal-animation">
                 <img src="assets/HHLogo.svg" alt="HulaHoop HH Logo" class="logo-animate" />
             </div>
-            <h1>The <span class="accent-text">Agency</span> That Truely Gets <span class="accent-text">You.</span></h1>
-            <p class="hero-subtitle">We know exactly what your brand needs — and we make it happen. From bold social campaigns and unforgettable events to innovative retail experiences, we blend creativity with AI to fuel smarter, faster growth for brands that want to lead.</p>
+            <h1>Your <span class="accent-text3">Vision.</span> Our <span class="accent-text2">Expertise.</span> Explosive <span class="accent-text">Growth.</span></h1>
+            <p class="hero-subtitle">We Simplify Navigating the Complex Digital Landscape With Tailored Strategies That Connect You With Your Ideal Audience.</p>
             <div class="hero-cta-group">
                 <a href="#services" class="btn-dynamic btn-primary-dynamic">Explore Services →</a>
                 <a href="#portfolio" class="btn-dynamic btn-outline-dynamic">View Previous Projects</a>
@@ -594,54 +595,6 @@
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="process-modern" id="process">
-        <div class="process-wrapper">
-            <div class="process-intro">
-                <div class="section-header" style="margin: 0 auto;">
-                    <h2>Our <span class="highlight-word">Process</span></h2>
-                    <p>A proven approach that blends strategy, creativity, and optimization to drive growth.</p>
-                </div>
-            </div>
-            <div class="border-timeline">
-                <p><strong>Discover & Align</strong><br>Uncover goals, audience insights, and define success metrics together.</p>
-                <p><strong>Strategize & Plan</strong><br>Build a tailored roadmap with clear milestones and responsibilities.</p>
-                <p><strong>Execute & Launch</strong><br>Deploy, monitor, and iterate with precision and creative flair.</p>
-                <p><strong>Measure & Scale</strong><br>Analyze performance, refine approaches, and scale what works.</p>
-            </div>
-            <div class="process-timeline">
-                <div class="timeline-line"></div>
-                <div class="process-step-modern left reveal-animation">
-                    <div class="step-number-modern">1</div>
-                    <div class="step-content-modern">
-                        <h3 class="step-title-modern">Discover & Align</h3>
-                        <p class="step-desc-modern">Uncover goals, audience insights, and define success metrics together.</p>
-                    </div>
-                </div>
-                <div class="process-step-modern right reveal-animation">
-                    <div class="step-number-modern">2</div>
-                    <div class="step-content-modern">
-                        <h3 class="step-title-modern">Strategize & Plan</h3>
-                        <p class="step-desc-modern">Build a tailored roadmap with clear milestones and responsibilities.</p>
-                    </div>
-                </div>
-                <div class="process-step-modern left reveal-animation">
-                    <div class="step-number-modern">3</div>
-                    <div class="step-content-modern">
-                        <h3 class="step-title-modern">Execute & Launch</h3>
-                        <p class="step-desc-modern">Deploy, monitor, and iterate with precision and creative flair.</p>
-                    </div>
-                </div>
-                <div class="process-step-modern right reveal-animation">
-                    <div class="step-number-modern">4</div>
-                    <div class="step-content-modern">
-                        <h3 class="step-title-modern">Measure & Scale</h3>
-                        <p class="step-desc-modern">Analyze performance, refine approaches, and scale what works.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Portfolio -->
     <section class="portfolio-showcase" id="portfolio">
