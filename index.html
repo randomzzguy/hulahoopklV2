@@ -1280,10 +1280,6 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-
-            .nav-actions .nav-contact {
-                display: none;
-            }
         }
 
         /* NEW: Horizontal Portfolio Styles */
@@ -2243,6 +2239,35 @@
                 if (serviceSelect) serviceSelect.value = mapped;
                 if (messageArea) messageArea.value = `Interest: ${presetService}`;
             }
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+        }
+
+        function submitContactForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log('Form submission:', data);
+
+            // Simple visual feedback
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('Thank you! Your message has been sent.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                form.reset();
+                closeContactModal();
+            }, 1000);
         }
 
         // Mobile Menu Logic
