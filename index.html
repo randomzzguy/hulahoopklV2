@@ -411,6 +411,85 @@
             letter-spacing: 0.03em;
         }
 
+        /* Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .burger-menu span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: #eef2f7;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-20px);
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: #eef2f7;
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
         .nav-contact.btn-outline-dynamic {
             border-width: 1px;
         }
@@ -459,7 +538,6 @@
             margin-bottom: 1.25rem;
             color: #e5e7eb;
             text-shadow: 0 2px 24px rgba(147, 197, 253, 0.08);
-            white-space: nowrap;
         }
 
         .accent-text {
@@ -1096,30 +1174,115 @@
             opacity: 0.9;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-split {
-                text-align: center;
+        /* Responsive Optimizations */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
             }
 
-
-            .services-modern .hover-cards {
-                grid-template-columns: 1fr;
-            }
-
-            /* Portfolio mobile - still keep horizontal scroll but maybe adjust padding */
-            .portfolio-card-h {
-                min-width: 260px;
-                height: 320px;
+            .dynamic-nav {
+                padding: 1rem;
             }
 
             .nav-menu {
                 display: none;
             }
 
-            .btn-dynamic {
+            .burger-menu {
+                display: flex;
+            }
+
+            .nav-actions {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero-split {
+                padding: 0 1.5rem;
+                margin-top: 60px;
+                min-height: 80vh;
+            }
+
+            .hero-content-split h1 {
+                font-size: 2.4rem !important;
+                line-height: 1.2;
+                white-space: normal !important;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 4rem;
+            }
+
+            .logo-animate {
                 width: 100%;
-                justify-content: center;
+                max-width: 400px;
+            }
+
+            .services-modern,
+            .about-highlight-section,
+            .portfolio-showcase,
+            .testimonials-section,
+            .cta-block {
+                padding: 4rem 1.5rem;
+            }
+
+            .services-modern .hover-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .services-modern .card .face {
+                height: 180px;
+            }
+
+            .about-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-row-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .portfolio-card-h {
+                width: 280px;
+                height: 350px;
+            }
+
+            .project-viewport {
+                height: 50vh;
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content-split h1 {
+                font-size: 2rem !important;
+            }
+
+            .btn-dynamic {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-actions .nav-contact {
+                display: none;
             }
         }
 
@@ -1476,10 +1639,26 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#contact" class="btn-dynamic btn-outline-dynamic nav-contact">Inquire</a>
+                <a href="#contact" class="btn-dynamic btn-primary-dynamic nav-contact">Inquire</a>
+                <button class="burger-menu" id="burger-menu" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <!-- Hero -->
     <section class="hero-split" id="hero">
@@ -2042,6 +2221,8 @@
         // Contact modal logic
         function openContactModal(e, presetService) {
             if (e) e.preventDefault();
+            // Close mobile menu if open
+            closeMobileMenu();
             const modal = document.getElementById('contact-modal');
             modal.classList.add('open');
             modal.setAttribute('aria-hidden', 'false');
@@ -2063,29 +2244,35 @@
                 if (messageArea) messageArea.value = `Interest: ${presetService}`;
             }
         }
-        function closeContactModal() {
-            const modal = document.getElementById('contact-modal');
-            modal.classList.remove('open');
-            modal.setAttribute('aria-hidden', 'true');
+
+        // Mobile Menu Logic
+        const burgerMenu = document.getElementById('burger-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMobileMenu() {
+            burgerMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
         }
-        function submitContactForm(e) {
-            e.preventDefault();
-            const form = e.target;
-            const data = Object.fromEntries(new FormData(form).entries());
-            console.log('Contact form submitted:', data);
-            alert('Thanks! We will reach out within 24 hours.');
-            closeContactModal();
+
+        function closeMobileMenu() {
+            burgerMenu.classList.remove('active');
+            mobileMenu.classList.remove('open');
+            body.style.overflow = 'auto';
         }
-        // Close modal when clicking outside content and on Escape
-        (function () {
-            const overlay = document.getElementById('contact-modal');
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) closeContactModal();
-            });
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeContactModal();
-            });
-        })();
+
+        burgerMenu.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu on Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
 
         // Project modal logic (slideshow)
         let projectSlides = [];
