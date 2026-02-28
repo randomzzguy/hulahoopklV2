@@ -316,6 +316,93 @@
             }
         }
 
+        /* Team Section */
+        .team-section {
+            padding: 4rem 2rem 8rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .team-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .team-image-wrapper {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.75rem auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .team-card:hover .team-image-wrapper {
+            border-color: var(--accent-blue);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(147, 197, 253, 0.4);
+        }
+
+        .team-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-info h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0 0 0.4rem 0;
+            color: #fff;
+            letter-spacing: -0.01em;
+        }
+
+        .team-info p {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0;
+        }
+
+        @media (max-width: 1100px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .team-section {
+                padding: 2rem 1.5rem 6rem 1.5rem;
+            }
+        }
+
         /* Dynamic Navigation from new.html */
         .dynamic-nav {
             position: fixed;
@@ -680,6 +767,10 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
+        .portfolio-showcase {
+            padding: 8rem 2rem;
+        }
+
         .services-wrapper {
             max-width: 1400px;
             margin: 0 auto;
@@ -909,18 +1000,54 @@
             padding: 0;
             color: #c9d2de;
             line-height: 1.7;
+            text-align: center;
         }
 
-        .services-modern .card .face.face2 .content a {
-            margin: 15px 0 0;
-            display: inline-block;
+        .services-modern .card .face.face2 .content .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            justify-content: center;
+        }
+
+        .services-modern .btn-sm {
+            padding: 0.6rem 1.1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 900;
-            color: #e5e7eb;
-            padding: 8px 10px;
-            border-radius: 10px;
-            border: 1px solid var(--accent-blue);
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        .services-modern .btn-primary-sm {
+            background: linear-gradient(135deg, var(--accent-warm1), var(--accent-warm2));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 87, 51, 0.2);
+        }
+
+        .services-modern .btn-outline-sm {
+            background: transparent;
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+        }
+
+        .services-modern .btn-sm:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        margin: 15px 0 0;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 900;
+        color: #e5e7eb;
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid var(--accent-blue);
+        transition: all 0.3s ease;
         }
 
         .services-modern .card .face.face2 .content a:hover {
@@ -1033,20 +1160,38 @@
 
         .modal-content {
             width: 92%;
-            max-width: 520px;
-            background: rgba(255, 255, 255, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 1.5rem;
-            color: #e5e7eb;
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+            max-width: 500px;
+            background: rgba(16, 24, 39, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            color: #eef2f7;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
             position: relative;
+            animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .modal-content h3 {
-            margin: 0 0 1rem 0;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.8rem;
             font-weight: 900;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
         }
 
         .modal-close {
@@ -1084,11 +1229,33 @@
         .modal-form select,
         .modal-form textarea {
             width: 100%;
-            padding: 0.7rem 0.9rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.24);
+            padding: 0.85rem 1.1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .modal-form input::placeholder,
+        .modal-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus,
+        .modal-form textarea:focus {
+            border-color: var(--accent-blue);
             background: rgba(255, 255, 255, 0.08);
-            color: #e5e7eb;
+            box-shadow: 0 0 15px rgba(51, 181, 255, 0.15);
+        }
+
+        .modal-form select option {
+            background: #1e293b;
+            color: #fff;
+            padding: 10px;
         }
 
         .modal-actions {
@@ -1671,12 +1838,7 @@
                 <a href="#portfolio" class="btn-dynamic btn-outline-dynamic">View Portfolio</a>
             </div>
         </div>
-        <div class="hero-visual">
-            <video class="bg-video" autoplay muted loop playsinline>
-                <source src="assets/hero.mp4" type="video/mp4" />
-            </video>
-            <div class="hero-overlay liquid-bg"></div>
-        </div>
+
     </section>
 
     <!-- Client Logo Marquee -->
@@ -1730,13 +1892,67 @@
     <section class="about-highlight-section reveal-animation" id="about">
         <div class="container">
             <div class="glass-morphism about-card">
-                <h2 class="text-gradient">About HH Creative</h2>
+                <h2 class="text-gradient">About Us</h2>
                 <p class="about-text">
                     HH Creative & Marketing (Hulahoop) is an agency that combines expertise and resources to offer
                     tailored solutions for modern businesses, addressing every aspect of marketing, branding,
                     communication, and event management. From conceptualization to final delivery, we transform your
                     unique vision into a powerful market presence that resonates.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members -->
+    <section class="team-section">
+        <div class="services-wrapper">
+            <div class="section-intro reveal-animation">
+                <div class="section-header" style="margin: 0 auto 4rem auto;">
+                    <h2>Meet the <span class="highlight-word">Team</span></h2>
+                    <p>The creative minds behind Hulahoop's most successful campaigns</p>
+                </div>
+            </div>
+            <div class="team-grid">
+                <!-- Member 1 -->
+                <div class="glass-morphism team-card reveal-animation">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team/team-1.png" alt="Creative Director">
+                    </div>
+                    <div class="team-info">
+                        <h3>Marcus Chen</h3>
+                        <p>Creative Director</p>
+                    </div>
+                </div>
+                <!-- Member 2 -->
+                <div class="glass-morphism team-card reveal-animation">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team/team-2.png" alt="Marketing Specialist">
+                    </div>
+                    <div class="team-info">
+                        <h3>Sarah Jenkins</h3>
+                        <p>Marketing Specialist</p>
+                    </div>
+                </div>
+                <!-- Member 3 -->
+                <div class="glass-morphism team-card reveal-animation">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team/team-3.png" alt="Digital Strategist">
+                    </div>
+                    <div class="team-info">
+                        <h3>David Lim</h3>
+                        <p>Digital Strategist</p>
+                    </div>
+                </div>
+                <!-- Member 4 -->
+                <div class="glass-morphism team-card reveal-animation">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team/team-4.png" alt="Operations Manager">
+                    </div>
+                    <div class="team-info">
+                        <h3>Aisha Rahman</h3>
+                        <p>Operations Manager</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1764,8 +1980,11 @@
                     <div class="face face2">
                         <div class="content">
                             <p>Create compelling corporate videos that drive brand awareness and engagement.</p>
-                            <a href="#contact" data-open-modal="true"
-                                onclick="openContactModal(event, 'Collaborations')">Book Videographer</a>
+                            <div class="card-actions">
+                                <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
+                                    onclick="openContactModal(event, 'Corporate Video')">Inquire</a>
+                                <a href="#portfolio-video" class="btn-sm btn-outline-sm">See Work</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1782,8 +2001,11 @@
                     <div class="face face2">
                         <div class="content">
                             <p>Strategic management that builds communities and drives engagement across platforms.</p>
-                            <a href="#contact" data-open-modal="true"
-                                onclick="openContactModal(event, 'Social Media Management')">Get Started</a>
+                            <div class="card-actions">
+                                <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
+                                    onclick="openContactModal(event, 'Social Media Management')">Inquire</a>
+                                <a href="#portfolio-social" class="btn-sm btn-outline-sm">See Work</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1801,8 +2023,11 @@
                         <div class="content">
                             <p>AI-driven face replacement: swap a model’s face with an AI-generated persona while
                                 preserving realism.</p>
-                            <a href="#contact" data-open-modal="true"
-                                onclick="openContactModal(event, 'Digital Talent')">Create Digital Talent</a>
+                            <div class="card-actions">
+                                <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
+                                    onclick="openContactModal(event, 'Digital Talent')">Inquire</a>
+                                <a href="#portfolio-talent" class="btn-sm btn-outline-sm">See Work</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1819,8 +2044,11 @@
                     <div class="face face2">
                         <div class="content">
                             <p>End-to-end planning and execution for memorable brand events and activations.</p>
-                            <a href="#contact" data-open-modal="true"
-                                onclick="openContactModal(event, 'Event Management')">Plan Event</a>
+                            <div class="card-actions">
+                                <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
+                                    onclick="openContactModal(event, 'Event Management')">Inquire</a>
+                                <a href="#portfolio-events" class="btn-sm btn-outline-sm">See Work</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1837,8 +2065,11 @@
                     <div class="face face2">
                         <div class="content">
                             <p>Build strategic partnerships and co-create campaigns that amplify reach.</p>
-                            <a href="#contact" data-open-modal="true"
-                                onclick="openContactModal(event, 'Collaborations')">Start Collaboration</a>
+                            <div class="card-actions">
+                                <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
+                                    onclick="openContactModal(event, 'Collaborations')">Inquire</a>
+                                <a href="#portfolio-collabs" class="btn-sm btn-outline-sm">See Work</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1856,9 +2087,72 @@
                     <p>Explore our recent work across all disciplines</p>
                 </div>
             </div>
+            <!-- Row 0: Corporate Video -->
+            <div class="portfolio-row" id="portfolio-video">
+                <div class="portfolio-row-header">
+                    <h3>Corporate Video</h3>
+                    <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
+                </div>
+                <div class="horizontal-scroll-container">
+                    <!-- Item 1 -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Campaign Launch"
+                        data-desc="Full social strategy and execution for brand launch."
+                        data-images="assets/marketing.svg|assets/marketingBW.svg">
+                        <div class="card-image-h">
+                            <img src="assets/marketing.svg" alt="Project Thumb">
+                            <div class="video-badge-h">Reel</div>
+                        </div>
+                        <div class="card-info-h">
+                            <h4>Brand Launch 2024</h4>
+                            <span>Strategy & Content</span>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Daily Content"
+                        data-desc="Ongoing content creation and community management."
+                        data-images="assets/android-chrome-512x512.png">
+                        <div class="card-image-h">
+                            <img src="assets/android-chrome-512x512.png" alt="Project Thumb">
+                        </div>
+                        <div class="card-info-h">
+                            <h4>Retail Chain</h4>
+                            <span>Community Management</span>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Viral TikTok"
+                        data-desc="TikTok campaign reaching 1M+ views organic." data-images="assets/video.svg">
+                        <div class="card-image-h">
+                            <img src="assets/video.svg" alt="Project Thumb">
+                            <div class="video-badge-h">Viral</div>
+                        </div>
+                        <div class="card-info-h">
+                            <h4>Viral Campaign</h4>
+                            <span>TikTok Strategy</span>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="IG Growth"
+                        data-desc="Grew account from 5k to 50k in 3 months." data-images="assets/marketing.svg">
+                        <div class="card-image-h">
+                            <img src="assets/marketing.svg" alt="Project Thumb">
+                        </div>
+                        <div class="card-info-h">
+                            <h4>Organic Growth</h4>
+                            <span>Instagram</span>
+                        </div>
+                    </div>
+                    <!-- Placeholder for 'More' -->
+                    <div class="portfolio-card-h spacer-card">
+                        <div class="see-more-circle">
+                            <span>See All</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Row 1: Social Media Management -->
-            <div class="portfolio-row">
+            <div class="portfolio-row" id="portfolio-social">
                 <div class="portfolio-row-header">
                     <h3>Social Media Management</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -1922,7 +2216,7 @@
             </div>
 
             <!-- Row 2: Digital Talent -->
-            <div class="portfolio-row">
+            <div class="portfolio-row" id="portfolio-talent">
                 <div class="portfolio-row-header">
                     <h3>Digital Talent</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -1967,7 +2261,7 @@
             </div>
 
             <!-- Row 3: Event Management -->
-            <div class="portfolio-row">
+            <div class="portfolio-row" id="portfolio-events">
                 <div class="portfolio-row-header">
                     <h3>Event Management</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2012,7 +2306,7 @@
             </div>
 
             <!-- Row 4: Collaborations -->
-            <div class="portfolio-row">
+            <div class="portfolio-row" id="portfolio-collabs">
                 <div class="portfolio-row-header">
                     <h3>Collaborations</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2144,18 +2438,20 @@
                     <option value="5to20k">$5k–$20k</option>
                     <option value="gt20k">$20k+</option>
                 </select>
-                <select name="service">
-                    <option value="">Service</option>
-                    <option value="strategy">Strategy</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="events">Events</option>
-                    <option value="talent">Talent</option>
+                <select name="service" required>
+                    <option value="">Select Service</option>
+                    <option value="corporate-video">Corporate Video</option>
+                    <option value="social-media">Social Media Management</option>
+                    <option value="digital-talent">Digital Talent</option>
+                    <option value="event-management">Event Management</option>
+                    <option value="collaborations">Collaborations</option>
                 </select>
                 <textarea name="message" rows="3" placeholder="Project details (optional)"></textarea>
                 <div class="modal-actions">
                     <button type="button" class="btn-dynamic btn-outline-dynamic"
-                        onclick="closeContactModal()">Cancel</button>
-                    <button type="submit" class="btn-dynamic btn-primary-dynamic">Submit</button>
+                        style="padding: 0.8rem 1.5rem; font-size: 0.9rem;" onclick="closeContactModal()">Cancel</button>
+                    <button type="submit" class="btn-dynamic btn-primary-dynamic"
+                        style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Submit</button>
                 </div>
             </form>
         </div>
@@ -2222,22 +2518,22 @@
             const modal = document.getElementById('contact-modal');
             modal.classList.add('open');
             modal.setAttribute('aria-hidden', 'false');
-            // Prefill service and message based on preset
+
+            // Sync service selection
             if (presetService) {
                 const serviceSelect = modal.querySelector('select[name="service"]');
-                const messageArea = modal.querySelector('textarea[name="message"]');
                 const mapServicePreset = (name) => {
                     switch (name) {
-                        case 'Social Media Management': return 'marketing';
-                        case 'Digital Talent': return 'talent';
-                        case 'Event Management': return 'events';
-                        case 'Collaborations': return 'strategy';
+                        case 'Corporate Video': return 'corporate-video';
+                        case 'Social Media Management': return 'social-media';
+                        case 'Digital Talent': return 'digital-talent';
+                        case 'Event Management': return 'event-management';
+                        case 'Collaborations': return 'collaborations';
                         default: return '';
                     }
                 };
                 const mapped = mapServicePreset(presetService);
                 if (serviceSelect) serviceSelect.value = mapped;
-                if (messageArea) messageArea.value = `Interest: ${presetService}`;
             }
         }
 
