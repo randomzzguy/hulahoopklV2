@@ -1037,17 +1037,15 @@
         .services-modern .btn-sm:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
-        }
-
-        margin: 15px 0 0;
-        display: inline-block;
-        text-decoration: none;
-        font-weight: 900;
-        color: #e5e7eb;
-        padding: 8px 10px;
-        border-radius: 10px;
-        border: 1px solid var(--accent-blue);
-        transition: all 0.3s ease;
+            margin: 15px 0 0;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 900;
+            color: #e5e7eb;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--accent-blue);
+            transition: all 0.3s ease;
         }
 
         .services-modern .card .face.face2 .content a:hover {
@@ -1256,6 +1254,51 @@
             background: #1e293b;
             color: #fff;
             padding: 10px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .required-note {
+            font-size: 0.8rem;
+            color: #ef4444;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .error-text {
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            font-weight: 600;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-group.error .error-text {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .modal-actions {
@@ -1750,6 +1793,115 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Kelab Belia Section */
+        .kelab-belia-section {
+            padding: 8rem 2rem;
+            background: rgba(15, 23, 42, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .kelab-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .kelab-card {
+            padding: 2rem;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .kelab-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .kelab-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .kelab-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .kelab-card:hover .kelab-image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .kelab-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-warm1);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .kelab-info h3 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .kelab-info p {
+            margin: 0;
+            line-height: 1.6;
+            color: #94a3b8;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 1100px) {
+            .kelab-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .kelab-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .kelab-belia-section {
+                padding: 6rem 1.5rem;
+            }
+
+            .kelab-image-wrapper {
+                height: 220px;
+            }
+
+            .kelab-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -1792,13 +1944,15 @@
     <nav class="dynamic-nav" id="navbar">
         <div class="nav-wrapper">
             <div class="logo-area">
-                <img src="assets/hhSymbol.svg" alt="HH Logo" class="logo-symbol" />
+                <a href="#hero" class="logo-link">
+                    <img src="assets/hhSymbol.svg" alt="HH Logo" class="logo-symbol" />
+                </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#kelab-belia">Kelab Belia</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -1815,10 +1969,10 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu">
         <ul class="mobile-nav-links">
-            <li><a href="#hero">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#kelab-belia">Kelab Belia</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -2341,6 +2495,55 @@
         </div>
     </section>
 
+    <!-- Kelab Belia Dedicated Section -->
+    <section class="kelab-belia-section" id="kelab-belia">
+        <div class="services-wrapper">
+            <div class="section-intro reveal-animation">
+                <div class="section-header" style="margin: 0 auto 4rem auto;">
+                    <h2>KELAB <span class="highlight-word">BELIA</span></h2>
+                    <p>Empowering youth through movement, intellectual growth, and creative leadership.</p>
+                </div>
+            </div>
+            <div class="kelab-grid">
+                <!-- Card 1: Kelab Belia Progresif -->
+                <div class="glass-morphism kelab-card reveal-animation">
+                    <div class="kelab-image-wrapper">
+                        <img src="assets/logos/Kelab Belia Progresif Logo.png" alt="Kelab Belia Progresif">
+                        <div class="kelab-badge">Dance & Sport</div>
+                    </div>
+                    <div class="kelab-info">
+                        <h3>Kelab Belia Progresif</h3>
+                        <p>Promoting active living and community engagement through the power of movement.</p>
+                    </div>
+                </div>
+                <!-- Card 2: Inspirasi -->
+                <div class="glass-morphism kelab-card reveal-animation">
+                    <div class="kelab-image-wrapper">
+                        <img src="C:\Users\hhcre\.gemini\antigravity\brain\b04cc540-a6e4-479c-b138-d1fdf187efb0\inspirasi_intellectual_1772374773646.png"
+                            alt="Inspirasi">
+                        <div class="kelab-badge">Intellectual</div>
+                    </div>
+                    <div class="kelab-info">
+                        <h3>Inspirasi</h3>
+                        <p>Cultivating critical thinking through debate competitions and knowledge sharing.</p>
+                    </div>
+                </div>
+                <!-- Card 3: HQ -->
+                <div class="glass-morphism kelab-card reveal-animation">
+                    <div class="kelab-image-wrapper">
+                        <img src="C:\Users\hhcre\.gemini\antigravity\brain\b04cc540-a6e4-479c-b138-d1fdf187efb0\hulahoop_hq_1772374795177.png"
+                            alt="HQ">
+                        <div class="kelab-badge">HQ</div>
+                    </div>
+                    <div class="kelab-info">
+                        <h3>Hulahoop HQ</h3>
+                        <p>Our creative nerve center where ideas are born and visions are brought to life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Project Modal -->
     <div id="project-modal" class="modal-overlay project-modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
@@ -2428,25 +2631,46 @@
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
             <button class="modal-close" aria-label="Close" onclick="closeContactModal()">×</button>
             <h3 id="contact-modal-title">Quick Contact</h3>
-            <form class="modal-form" onsubmit="submitContactForm(event)">
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="text" name="company" placeholder="Company" />
-                <input type="email" name="email" placeholder="Email" required />
-                <select name="budget">
-                    <option value="">Budget</option>
-                    <option value="lt5k">&lt;$5k</option>
-                    <option value="5to20k">$5k–$20k</option>
-                    <option value="gt20k">$20k+</option>
-                </select>
-                <select name="service" required>
-                    <option value="">Select Service</option>
-                    <option value="corporate-video">Corporate Video</option>
-                    <option value="social-media">Social Media Management</option>
-                    <option value="digital-talent">Digital Talent</option>
-                    <option value="event-management">Event Management</option>
-                    <option value="collaborations">Collaborations</option>
-                </select>
-                <textarea name="message" rows="3" placeholder="Project details (optional)"></textarea>
+            <p class="required-note">* All fields are required</p>
+            <form class="modal-form" id="contact-form" onsubmit="submitContactForm(event)" novalidate>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Name *" required />
+                    <span class="error-text">Please enter your name</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="company" placeholder="Company *" required />
+                    <span class="error-text">Please enter your company name</span>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email *" required />
+                    <span class="error-text">Please enter a valid email address</span>
+                </div>
+                <div class="form-group">
+                    <select name="budget" required>
+                        <option value="">Budget (RM) *</option>
+                        <option value="1k-3k">RM 1,000 - RM 3,000</option>
+                        <option value="3k-5k">RM 3,000 - RM 5,000</option>
+                        <option value="5k-10k">RM 5,000 - RM 10,000</option>
+                        <option value="10k-20k">RM 10,000 - RM 20,000</option>
+                        <option value="gt20k">RM 20,000+</option>
+                    </select>
+                    <span class="error-text">Please select a budget</span>
+                </div>
+                <div class="form-group">
+                    <select name="service" required>
+                        <option value="">Select Service *</option>
+                        <option value="corporate-video">Corporate Video</option>
+                        <option value="social-media">Social Media Management</option>
+                        <option value="digital-talent">Digital Talent</option>
+                        <option value="event-management">Event Management</option>
+                        <option value="collaborations">Collaborations</option>
+                    </select>
+                    <span class="error-text">Please select a service</span>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="3" placeholder="Project details *" required></textarea>
+                    <span class="error-text">Please provide project details</span>
+                </div>
                 <div class="modal-actions">
                     <button type="button" class="btn-dynamic btn-outline-dynamic"
                         style="padding: 0.8rem 1.5rem; font-size: 0.9rem;" onclick="closeContactModal()">Cancel</button>
@@ -2513,13 +2737,16 @@
         // Contact modal logic
         function openContactModal(e, presetService) {
             if (e) e.preventDefault();
-            // Close mobile menu if open
             closeMobileMenu();
             const modal = document.getElementById('contact-modal');
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.reset();
+                form.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
+            }
             modal.classList.add('open');
             modal.setAttribute('aria-hidden', 'false');
 
-            // Sync service selection
             if (presetService) {
                 const serviceSelect = modal.querySelector('select[name="service"]');
                 const mapServicePreset = (name) => {
@@ -2543,15 +2770,51 @@
             modal.setAttribute('aria-hidden', 'true');
         }
 
+        function validateEmail(email) {
+            return String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+        }
+
         function submitContactForm(e) {
             e.preventDefault();
             const form = e.target;
+            const groups = form.querySelectorAll('.form-group');
+            let isValid = true;
+
+            groups.forEach(group => {
+                const input = group.querySelector('input, select, textarea');
+                const errorText = group.querySelector('.error-text');
+                let fieldValid = true;
+
+                if (input.hasAttribute('required')) {
+                    if (!input.value.trim()) {
+                        fieldValid = false;
+                    } else if (input.type === 'email' && !validateEmail(input.value)) {
+                        fieldValid = false;
+                        errorText.textContent = 'Please enter a valid email address';
+                    }
+                }
+
+                if (fieldValid) {
+                    group.classList.remove('error');
+                } else {
+                    group.classList.add('error');
+                    isValid = false;
+                }
+
+                // Clear error on input
+                input.oninput = () => group.classList.remove('error');
+            });
+
+            if (!isValid) return;
+
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
-
             console.log('Form submission:', data);
 
-            // Simple visual feedback
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
