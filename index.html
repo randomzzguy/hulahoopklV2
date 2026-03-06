@@ -213,47 +213,64 @@
 
         /* Logo Marquee */
         .logo-marquee-section {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             overflow: hidden;
             position: relative;
             z-index: 10;
+            margin-top: 5rem;
+            background: transparent;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
 
         .marquee-track {
             display: flex;
             width: fit-content;
-            animation: marqueeScroll 40s linear infinite;
+            animation: marqueeScroll 45s linear infinite;
         }
 
         .marquee-content {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            padding-right: 4rem;
+            gap: 3.25rem;
+            padding-right: 3.25rem;
         }
 
         .marquee-content img {
-            height: 60px;
-            width: 60px;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-            filter: grayscale(100%);
+            height: auto;
+            max-height: 48px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            opacity: 0.45;
+            transition: all 0.3s ease;
+            filter: grayscale(100%) brightness(1.2);
+            margin: 0 0.75rem;
+        }
+
+        .marquee-content img.logo-lg {
+            max-height: 54px;
+            transform: scale(1.12);
         }
 
         .marquee-content img:hover {
             opacity: 1;
-            filter: grayscale(0%);
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.05);
         }
 
         .marquee-content span {
             font-weight: 800;
-            color: #64748b;
-            font-size: 0.9rem;
-            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
             white-space: nowrap;
+            margin-right: 1rem;
         }
 
         @keyframes marqueeScroll {
@@ -595,6 +612,7 @@
             position: relative;
             z-index: 1;
             text-align: center;
+            overflow-x: hidden;
         }
 
         .hero-content-split {
@@ -619,22 +637,28 @@
         }
 
         .hero-content-split h1 {
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 500;
-            line-height: 1.2;
-            margin-bottom: 5rem;
-            color: #e5e7eb;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            letter-spacing: 0.18em;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 3.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.4em;
             text-transform: uppercase;
-            padding: 0.75rem 2.5rem;
-            display: inline-flex;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 100px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
             white-space: nowrap;
+            position: relative;
+        }
+
+        .hero-content-split h1::before,
+        .hero-content-split h1::after {
+            content: '';
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
         }
 
         .accent-text {
@@ -1997,56 +2021,62 @@
                 <a href="#services" class="btn-dynamic btn-primary-dynamic">Explore Services →</a>
                 <a href="#portfolio" class="btn-dynamic btn-outline-dynamic">View Portfolio</a>
             </div>
-        </div>
 
+            <!-- Client Logo Marquee (Moved into Hero) -->
+            <div class="logo-marquee-section reveal-animation" style="animation-delay: 0.5s;">
+                <div class="marquee-track">
+                    <div class="marquee-content">
+                        <span>CLIENTELE</span>
+                        <img src="assets/logos/adamas_logo.png" alt="Adamas">
+                        <img src="assets/logos/akarea.png" alt="Akarea">
+                        <img src="assets/logos/CATS LOGO.png" alt="CATS">
+                        <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
+                        <img src="assets/logos/IDOUBABE_logo.png" alt="Idoubabe">
+                        <img src="assets/logos/Inspirasi.png" class="logo-lg" alt="Inspirasi">
+                        <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/MOP LOGO.PNG" alt="MOP">
+                        <img src="assets/logos/pyy logo.png" alt="PYY">
+                        <span>CLIENTELE</span>
+                        <img src="assets/logos/adamas_logo.png" alt="Adamas">
+                        <img src="assets/logos/akarea.png" alt="Akarea">
+                        <img src="assets/logos/CATS LOGO.png" alt="CATS">
+                        <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
+                        <img src="assets/logos/IDOUBABE_logo.png" alt="Idoubabe">
+                        <img src="assets/logos/Inspirasi.png" class="logo-lg" alt="Inspirasi">
+                        <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/MOP LOGO.PNG" alt="MOP">
+                        <img src="assets/logos/pyy logo.png" alt="PYY">
+                    </div>
+                    <div class="marquee-content" aria-hidden="true">
+                        <span>CLIENTELE</span>
+                        <img src="assets/logos/adamas_logo.png" alt="Adamas">
+                        <img src="assets/logos/akarea.png" alt="Akarea">
+                        <img src="assets/logos/CATS LOGO.png" alt="CATS">
+                        <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
+                        <img src="assets/logos/IDOUBABE_logo.png" alt="Idoubabe">
+                        <img src="assets/logos/Inspirasi.png" class="logo-lg" alt="Inspirasi">
+                        <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/MOP LOGO.PNG" alt="MOP">
+                        <img src="assets/logos/pyy logo.png" alt="PYY">
+                        <span>CLIENTELE</span>
+                        <img src="assets/logos/adamas_logo.png" alt="Adamas">
+                        <img src="assets/logos/akarea.png" alt="Akarea">
+                        <img src="assets/logos/CATS LOGO.png" alt="CATS">
+                        <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
+                        <img src="assets/logos/IDOUBABE_logo.png" alt="Idoubabe">
+                        <img src="assets/logos/Inspirasi.png" class="logo-lg" alt="Inspirasi">
+                        <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/MOP LOGO.PNG" alt="MOP">
+                        <img src="assets/logos/pyy logo.png" alt="PYY">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-
-    <!-- Client Logo Marquee -->
-    <div class="logo-marquee-section">
-        <div class="marquee-track">
-            <!-- Duplicate content for infinite scroll -->
-            <div class="marquee-content">
-                <span>CLIENTELE</span>
-                <img src="assets/logos/adamas_logo.png" alt="Client">
-                <img src="assets/logos/akarea.png" alt="Client">
-                <img src="assets/logos/CATS LOGO.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO MAIN.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO.png" alt="Client">
-                <img src="assets/logos/Kelab Belia Progresif Logo.png" alt="Client">
-                <img src="assets/logos/MOP LOGO.png" alt="Client">
-                <img src="assets/logos/pyy logo.png" alt="Client">
-                <span>CLIENTELE</span>
-                <img src="assets/logos/adamas_logo.png" alt="Client">
-                <img src="assets/logos/akarea.png" alt="Client">
-                <img src="assets/logos/CATS LOGO.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO MAIN.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO.png" alt="Client">
-                <img src="assets/logos/Kelab Belia Progresif Logo.png" alt="Client">
-                <img src="assets/logos/MOP LOGO.png" alt="Client">
-                <img src="assets/logos/pyy logo.png" alt="Client">
-            </div>
-            <div class="marquee-content" aria-hidden="true">
-                <span>CLIENTELE</span>
-                <img src="assets/logos/adamas_logo.png" alt="Client">
-                <img src="assets/logos/akarea.png" alt="Client">
-                <img src="assets/logos/CATS LOGO.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO MAIN.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO.png" alt="Client">
-                <img src="assets/logos/Kelab Belia Progresif Logo.png" alt="Client">
-                <img src="assets/logos/MOP LOGO.png" alt="Client">
-                <img src="assets/logos/pyy logo.png" alt="Client">
-                <span>CLIENTELE</span>
-                <img src="assets/logos/adamas_logo.png" alt="Client">
-                <img src="assets/logos/akarea.png" alt="Client">
-                <img src="assets/logos/CATS LOGO.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO MAIN.png" alt="Client">
-                <img src="assets/logos/DBKL LOGO.png" alt="Client">
-                <img src="assets/logos/Kelab Belia Progresif Logo.png" alt="Client">
-                <img src="assets/logos/MOP LOGO.png" alt="Client">
-                <img src="assets/logos/pyy logo.png" alt="Client">
-            </div>
-        </div>
-    </div>
 
     <!-- About Highlight -->
     <section class="about-highlight-section reveal-animation" id="about">
