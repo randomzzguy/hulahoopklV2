@@ -19,6 +19,45 @@
             --accent-cyan: #22d3ee;
             --accent-warm1: #FF5733;
             --accent-warm2: #FF33A1;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-violet));
+            border-radius: 5px;
+            border: 2px solid #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-blue));
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: rgba(147, 197, 253, 0.3);
+            color: #fff;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-warm1), var(--accent-warm2), var(--accent-cyan));
+            z-index: 2000;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(255, 87, 51, 0.5);
         }
 
         body {
@@ -88,6 +127,21 @@
             box-shadow: 0 0 30px rgba(147, 197, 253, 0.15);
             animation: hoopFloat linear infinite;
             mix-blend-mode: screen;
+        }
+
+        /* Mouse Glow Effect */
+        .mouse-glow {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(147, 197, 253, 0.15) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body:hover .mouse-glow {
+            opacity: 1;
         }
 
         /* Speed up hoop animation globally */
@@ -202,13 +256,50 @@
 
         .reveal-animation {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity;
         }
 
         .reveal-animation.revealed {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-logo {
+            width: 120px;
+            animation: preloaderPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes preloaderPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
         }
 
         /* Logo Marquee */
@@ -739,6 +830,23 @@
 
         .btn-primary-dynamic:hover::before {
             left: 100%;
+        }
+
+        /* Pulse Animation for Inquire Button */
+        @keyframes btnPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 8px 30px rgba(255, 87, 51, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 8px 45px rgba(255, 87, 51, 0.6);
+            }
+        }
+
+        .nav-contact.btn-primary-dynamic {
+            animation: btnPulse 3s infinite ease-in-out;
         }
 
         .btn-primary-dynamic:hover {
@@ -1975,12 +2083,65 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Mouse Glow */
+        .mouse-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.mouse-active .mouse-glow {
+            opacity: 1;
+        }
+
+        /* Button Hover Animations */
+        .btn-dynamic {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-dynamic::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-dynamic:hover::before {
+            width: 200%;
+            height: 200%;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Ambient Background (Hoops + Particles) -->
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <img src="assets/hhSymbol.svg" alt="Loading..." class="preloader-logo" />
+    </div>
+
+    <!-- Ambient Background -->
     <div class="ambient-bg">
+        <div class="mouse-glow" id="mouse-glow"></div>
+        <div class="ambient-blob"></div>
         <!-- Ambient Blobs -->
         <div class="ambient-blob" style="left: -120px; top: 140px;"></div>
         <div class="ambient-blob violet" style="right: -160px; top: 420px;"></div>
@@ -2012,6 +2173,9 @@
         <div class="particle" style="left: 78%; bottom: -12%; animation-duration: 16s; animation-delay: 7s;"></div>
         <div class="particle" style="left: 88%; bottom: -16%; animation-duration: 19s; animation-delay: 8s;"></div>
     </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- Navigation -->
     <nav class="dynamic-nav" id="navbar">
@@ -2056,8 +2220,9 @@
             <div class="logo-hero reveal-animation">
                 <img src="assets/HHLogo.svg" alt="HulaHoop HH Logo" class="logo-animate" />
             </div>
-            <h1><span class="text-gradient">Creative & Culture</span></h1>
-            <div class="hero-cta-group reveal-animation">
+            <h1><span class="text-gradient reveal-animation" style="animation-delay: 0.3s;">Creative & Culture</span>
+            </h1>
+            <div class="hero-cta-group reveal-animation" style="animation-delay: 0.6s;">
                 <a href="#services" class="btn-dynamic btn-primary-dynamic">Explore Services →</a>
                 <a href="#portfolio" class="btn-dynamic btn-outline-dynamic">View Portfolio</a>
             </div>
@@ -2623,14 +2788,35 @@
     </footer>
 
     <script>
-        // Navigation scroll effect
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 500);
+        });
+
+        // Navigation scroll effect & Progress Bar
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
+            const progress = document.getElementById('scroll-progress');
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+            if (progress) progress.style.width = scrollPercent + '%';
+
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mouse Glow tracking
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.documentElement.style.setProperty('--mouse-x', x + '%');
+            document.documentElement.style.setProperty('--mouse-y', y + '%');
         });
 
         // Smooth scrolling
