@@ -2032,7 +2032,7 @@
                 <img src="assets/HHLogo.svg" alt="HulaHoop HH Logo" class="logo-animate" />
             </div>
             <h1><span class="text-gradient">Creative & Culture</span></h1>
-            <div class="hero-cta-group">
+            <div class="hero-cta-group reveal-animation">
                 <a href="#services" class="btn-dynamic btn-primary-dynamic">Explore Services →</a>
                 <a href="#portfolio" class="btn-dynamic btn-outline-dynamic">View Portfolio</a>
             </div>
@@ -2111,7 +2111,7 @@
     <!-- Services -->
     <section class="services-modern" id="services">
         <div class="services-wrapper">
-            <div class="section-intro">
+            <div class="section-intro reveal-animation">
                 <div class="section-header" style="margin: 0 auto;">
                     <h2>Our <span class="highlight-word">Expertise</span></h2>
                     <p>Comprehensive digital solutions designed to elevate your brand and drive measurable growth</p>
@@ -2232,14 +2232,14 @@
     <!-- Portfolio - Horizontal Rows -->
     <section class="portfolio-showcase" id="portfolio">
         <div class="portfolio-container-fluid">
-            <div class="section-intro">
+            <div class="section-intro reveal-animation">
                 <div class="section-header" style="margin: 0 auto;">
                     <h2>Our <span class="highlight-word">Portfolio</span></h2>
                     <p>Explore our recent work across all disciplines</p>
                 </div>
             </div>
             <!-- Row 0: Corporate Video -->
-            <div class="portfolio-row" id="portfolio-video">
+            <div class="portfolio-row reveal-animation" id="portfolio-video">
                 <div class="portfolio-row-header">
                     <h3>Corporate Video</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2262,7 +2262,7 @@
             </div>
 
             <!-- Row 1: Social Media Management -->
-            <div class="portfolio-row" id="portfolio-social">
+            <div class="portfolio-row reveal-animation" id="portfolio-social">
                 <div class="portfolio-row-header">
                     <h3>Social Media Management</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2296,7 +2296,7 @@
             </div>
 
             <!-- Row 2: Digital Talent -->
-            <div class="portfolio-row" id="portfolio-talent">
+            <div class="portfolio-row reveal-animation" id="portfolio-talent">
                 <div class="portfolio-row-header">
                     <h3>Digital Talent</h3>
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2320,7 +2320,7 @@
         </div>
 
         <!-- Row 3: Event Management -->
-        <div class="portfolio-row" id="portfolio-events">
+        <div class="portfolio-row reveal-animation" id="portfolio-events">
             <div class="portfolio-row-header">
                 <h3>Event Management</h3>
                 <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2368,7 +2368,7 @@
         </div>
 
         <!-- Row 4: Collaborations -->
-        <div class="portfolio-row" id="portfolio-collabs">
+        <div class="portfolio-row reveal-animation" id="portfolio-collabs">
             <div class="portfolio-row-header">
                 <h3>Collaborations</h3>
                 <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
@@ -2800,10 +2800,11 @@
             if (isVideo) {
                 const video = document.createElement('video');
                 video.src = source;
+                video.id = 'project-slide';
+                video.setAttribute('controls', 'controls');
                 video.controls = true;
                 video.autoplay = true;
-                video.muted = false; // User wants to hear it if they open it
-                video.id = 'project-slide';
+                video.muted = false;
                 container.appendChild(video);
             } else {
                 const img = document.createElement('img');
