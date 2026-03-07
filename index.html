@@ -1366,7 +1366,8 @@
             z-index: 1;
         }
 
-        .project-viewport img {
+        .project-viewport img,
+        .project-viewport video {
             width: auto;
             height: auto;
             max-width: 100%;
@@ -1392,6 +1393,16 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn.prev {
+            left: 1rem;
+        }
+
+        .carousel-btn.next {
+            right: 1rem;
         }
 
         .carousel-btn:hover {
@@ -2234,58 +2245,17 @@
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
                 </div>
                 <div class="horizontal-scroll-container">
-                    <!-- Item 1 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Campaign Launch"
-                        data-desc="Full social strategy and execution for brand launch."
-                        data-images="assets/marketing.svg|assets/marketingBW.svg">
+                    <!-- Project 1: Adamas Gimmick -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Adamas Gimmick"
+                        data-desc="High-impact corporate gimmick video for Adamas."
+                        data-images="assets/portfolio/CVideo/adamas_gimmick.webm">
                         <div class="card-image-h">
-                            <img src="assets/marketing.svg" alt="Project Thumb">
-                            <div class="video-badge-h">Reel</div>
+                            <img src="assets/portfolio/CVideo/adamas_gimmick_thumb.webp" alt="Adamas Gimmick">
+                            <div class="video-badge-h">Video</div>
                         </div>
                         <div class="card-info-h">
-                            <h4>Brand Launch 2024</h4>
-                            <span>Strategy & Content</span>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Daily Content"
-                        data-desc="Ongoing content creation and community management."
-                        data-images="assets/android-chrome-512x512.png">
-                        <div class="card-image-h">
-                            <img src="assets/android-chrome-512x512.png" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Retail Chain</h4>
-                            <span>Community Management</span>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Viral TikTok"
-                        data-desc="TikTok campaign reaching 1M+ views organic." data-images="assets/video.svg">
-                        <div class="card-image-h">
-                            <img src="assets/video.svg" alt="Project Thumb">
-                            <div class="video-badge-h">Viral</div>
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Viral Campaign</h4>
-                            <span>TikTok Strategy</span>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="IG Growth"
-                        data-desc="Grew account from 5k to 50k in 3 months." data-images="assets/marketing.svg">
-                        <div class="card-image-h">
-                            <img src="assets/marketing.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Organic Growth</h4>
-                            <span>Instagram</span>
-                        </div>
-                    </div>
-                    <!-- Placeholder for 'More' -->
-                    <div class="portfolio-card-h spacer-card">
-                        <div class="see-more-circle">
-                            <span>See All</span>
+                            <h4>Adamas Gimmick</h4>
+                            <span>Corporate Video</span>
                         </div>
                     </div>
                 </div>
@@ -2298,58 +2268,28 @@
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
                 </div>
                 <div class="horizontal-scroll-container">
-                    <!-- Item 1 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Campaign Launch"
-                        data-desc="Full social strategy and execution for brand launch."
-                        data-images="assets/marketing.svg|assets/marketingBW.svg">
+                    <!-- Project 1: PYY -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="PYY Social Management"
+                        data-desc="Strategic social media management and content for PYY."
+                        data-images="assets/marketing.svg">
                         <div class="card-image-h">
-                            <img src="assets/marketing.svg" alt="Project Thumb">
-                            <div class="video-badge-h">Reel</div>
+                            <img src="assets/marketing.svg" alt="PYY">
                         </div>
                         <div class="card-info-h">
-                            <h4>Brand Launch 2024</h4>
-                            <span>Strategy & Content</span>
+                            <h4>PYY</h4>
+                            <span>SMM</span>
                         </div>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Daily Content"
-                        data-desc="Ongoing content creation and community management."
-                        data-images="assets/android-chrome-512x512.png">
+                    <!-- Project 2: SWC -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="SWC Social Management"
+                        data-desc="Comprehensive community growth and content strategy for SWC."
+                        data-images="assets/marketingBW.svg">
                         <div class="card-image-h">
-                            <img src="assets/android-chrome-512x512.png" alt="Project Thumb">
+                            <img src="assets/marketingBW.svg" alt="SWC">
                         </div>
                         <div class="card-info-h">
-                            <h4>Retail Chain</h4>
-                            <span>Community Management</span>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Viral TikTok"
-                        data-desc="TikTok campaign reaching 1M+ views organic." data-images="assets/video.svg">
-                        <div class="card-image-h">
-                            <img src="assets/video.svg" alt="Project Thumb">
-                            <div class="video-badge-h">Viral</div>
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Viral Campaign</h4>
-                            <span>TikTok Strategy</span>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="IG Growth"
-                        data-desc="Grew account from 5k to 50k in 3 months." data-images="assets/marketing.svg">
-                        <div class="card-image-h">
-                            <img src="assets/marketing.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Organic Growth</h4>
-                            <span>Instagram</span>
-                        </div>
-                    </div>
-                    <!-- Placeholder for 'More' -->
-                    <div class="portfolio-card-h spacer-card">
-                        <div class="see-more-circle">
-                            <span>See All</span>
+                            <h4>SWC</h4>
+                            <span>SMM</span>
                         </div>
                     </div>
                 </div>
@@ -2362,121 +2302,155 @@
                     <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
                 </div>
                 <div class="horizontal-scroll-container">
-                    <!-- Item 1 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="AI Model Debut"
-                        data-desc="Launch key visuals for AI fashion model."
-                        data-images="assets/talent.svg|assets/talentBW.svg">
+                    <!-- Project 1: AI Sample DTs -->
+                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="AI Sample DTs (Bella)"
+                        data-desc="AI-driven face replacement showcase featuring Bella."
+                        data-images="assets/portfolio/DT/bella_orig.webp|assets/portfolio/DT/face_orig.webp|assets/portfolio/DT/bella_enhanced.webp|assets/portfolio/DT/face_gen.webp">
                         <div class="card-image-h">
-                            <img src="assets/talent.svg" alt="Project Thumb">
+                            <img src="assets/portfolio/DT/bella_enhanced.webp" alt="Bella AI Showcase">
+                            <div class="video-badge-h">AI Tech</div>
                         </div>
                         <div class="card-info-h">
-                            <h4>AI Fashion Week</h4>
-                            <span>Digital Persona</span>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Face Swap Tech"
-                        data-desc="Innovative face replacement campaign for privacy."
-                        data-images="assets/android-chrome-192x192.png">
-                        <div class="card-image-h">
-                            <img src="assets/android-chrome-192x192.png" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Privacy Campaign</h4>
+                            <h4>AI Sample DTs</h4>
                             <span>Face Replacement</span>
                         </div>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Virtual Influencer"
-                        data-desc="Created a brand ambassador from scratch." data-images="assets/hhSymbol.svg">
-                        <div class="card-image-h">
-                            <img src="assets/hhSymbol.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Brand Ambassador</h4>
-                            <span>Virtual Human</span>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Row 3: Event Management -->
-            <div class="portfolio-row" id="portfolio-events">
-                <div class="portfolio-row-header">
-                    <h3>Event Management</h3>
-                    <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
+        <!-- Row 3: Event Management -->
+        <div class="portfolio-row" id="portfolio-events">
+            <div class="portfolio-row-header">
+                <h3>Event Management</h3>
+                <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
+            </div>
+            <div class="horizontal-scroll-container">
+                <!-- Project 1: Hari Wilayah 2023 -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Hari Wilayah 2023 (DBKL)"
+                    data-desc="Dance Battle - KOTS PROMO REELS showcased for Hari Wilayah."
+                    data-images="assets/portfolio/EM/kots_reels.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/EM/kots_reels_thumb.webp" alt="Hari Wilayah 2023">
+                        <div class="video-badge-h">Reel</div>
+                    </div>
+                    <div class="card-info-h">
+                        <h4>Hari Wilayah 2023</h4>
+                        <span>Dance Battle</span>
+                    </div>
                 </div>
-                <div class="horizontal-scroll-container">
-                    <!-- Item 1 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Tech Conference"
-                        data-desc="Full production for 500-pax tech summit."
-                        data-images="assets/event.svg|assets/eventBW.svg">
-                        <div class="card-image-h">
-                            <img src="assets/event.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Tech Summit 2024</h4>
-                            <span>Conference</span>
-                        </div>
+                <!-- Project 2: DBKL Teh Hijau -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="DBKL Teh Hijau"
+                    data-desc="Event profile reel for DBKL Teh Hijau - July 2024."
+                    data-images="assets/portfolio/EM/teh_hijau.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/EM/teh_hijau_thumb.webp" alt="DBKL Teh Hijau">
+                        <div class="video-badge-h">Event Reel</div>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Product Launch"
-                        data-desc="Immersive launch event for new beverage."
-                        data-images="assets/android-chrome-512x512.png">
-                        <div class="card-image-h">
-                            <img src="assets/android-chrome-512x512.png" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Beverage Launch</h4>
-                            <span>Activation</span>
-                        </div>
+                    <div class="card-info-h">
+                        <h4>DBKL Teh Hijau</h4>
+                        <span>July 2024</span>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Music Festival Booth"
-                        data-desc="Interactive booth design and management." data-images="assets/video.svg">
-                        <div class="card-image-h">
-                            <img src="assets/video.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Festival Activation</h4>
-                            <span>Booth Design</span>
-                        </div>
+                </div>
+                <!-- Project 3: Hari Wilayah KL 2025 -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Hari Wilayah KL 2025"
+                    data-desc="Official coverage for Hari Wilayah KL 2025."
+                    data-images="assets/portfolio/EM/hari_wilayah_2025.webp">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/EM/hari_wilayah_2025.webp" alt="Hari Wilayah KL 2025">
+                    </div>
+                    <div class="card-info-h">
+                        <h4>Hari Wilayah KL 2025</h4>
+                        <span>Event</span>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Row 4: Collaborations -->
-            <div class="portfolio-row" id="portfolio-collabs">
-                <div class="portfolio-row-header">
-                    <h3>Collaborations</h3>
-                    <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
-                </div>
-                <div class="horizontal-scroll-container">
-                    <!-- Item 1 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Brand X Artist"
-                        data-desc="Facilitated collab between major brand and local artist."
-                        data-images="assets/collab.svg|assets/collabBW.svg">
-                        <div class="card-image-h">
-                            <img src="assets/collab.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Art X Brand</h4>
-                            <span>Partnership</span>
-                        </div>
+        <!-- Row 4: Collaborations -->
+        <div class="portfolio-row" id="portfolio-collabs">
+            <div class="portfolio-row-header">
+                <h3>Collaborations</h3>
+                <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
+            </div>
+            <div class="horizontal-scroll-container">
+                <!-- Project 1: JDT Nike Home Away Jersey Launch -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="JDT Nike 2023 Launch"
+                    data-desc="Graffmapping + Neon LED reveal for JDT Nike Home Away Jersey Launch 2023."
+                    data-images="assets/portfolio/Collabs/jdt_reels.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/Collabs/jdt_reels_thumb.webp" alt="JDT Nike Launch">
+                        <div class="video-badge-h">Mapping</div>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Cross-Promo"
-                        data-desc="Joint campaign for two complementary brands." data-images="assets/hhSymbol.svg">
-                        <div class="card-image-h">
-                            <img src="assets/hhSymbol.svg" alt="Project Thumb">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Summer Bundle</h4>
-                            <span>Co-Marketing</span>
-                        </div>
+                    <div class="card-info-h">
+                        <h4>JDT Nike Launch</h4>
+                        <span>Graffmapping</span>
+                    </div>
+                </div>
+                <!-- Project 2: Pelancaran Rakan Muda by PMX -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Rakan Muda (PMX)"
+                    data-desc="Launch of 'Nafas Baharu Rakan Muda' by the Prime Minister."
+                    data-images="assets/portfolio/Collabs/rakan_muda_pmx.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/Collabs/rakan_muda_pmx_thumb.webp" alt="Rakan Muda Launch">
+                        <div class="video-badge-h">Reel</div>
+                    </div>
+                    <div class="card-info-h">
+                        <h4>Rakan Muda</h4>
+                        <span>PMX Launch</span>
+                    </div>
+                </div>
+                <!-- Project 3: Anugerah Sukan Negara 2022 -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="ASN 2022 (MSN)"
+                    data-desc="Anugerah Sukan Negara 2022 Zeppo Reel for MSN."
+                    data-images="assets/portfolio/Collabs/zeppo_reel.webm|assets/portfolio/Collabs/zeppo_reel_2.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/Collabs/zeppo_reel_thumb.webp" alt="ASN 2022">
+                    </div>
+                    <div class="card-info-h">
+                        <h4>ASN 2022</h4>
+                        <span>MSN Awards</span>
+                    </div>
+                </div>
+                <!-- Project 4: Santapan Negara with Philippines President -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Santapan Negara"
+                    data-desc="Official visit and dinner with the President of Philippines at Istana Negara."
+                    data-images="assets/portfolio/Collabs/santapan_negara.webm|assets/portfolio/Collabs/collab_image_1.webp">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/Collabs/santapan_negara_thumb.webp" alt="Santapan Negara">
+                    </div>
+                    <div class="card-info-h">
+                        <h4>Santapan Negara</h4>
+                        <span>Istana Negara</span>
+                    </div>
+                </div>
+                <!-- Project 5: JDT Decade of Dominance -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="JDT Decade of Dominance"
+                    data-desc="Fan Fest 2023 celebration for JDT's Decade of Dominance."
+                    data-images="assets/portfolio/Collabs/jdt_decade_1.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/Collabs/jdt_decade_1_thumb.webp" alt="JDT Decade">
+                        <div class="video-badge-h">Fan Fest</div>
+                    </div>
+                    <div class="card-info-h">
+                        <h4>JDT Decade</h4>
+                        <span>Fan Fest 2023</span>
+                    </div>
+                </div>
+                <!-- Project 6: Repz Your Style 2023 -->
+                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Repz Your Style 2023"
+                    data-desc="Recap reel for the Repz Your Style 2023 event."
+                    data-images="assets/portfolio/Collabs/rys_2023.webm">
+                    <div class="card-image-h">
+                        <img src="assets/portfolio/Collabs/rys_2023_thumb.webp" alt="RYS 2023">
+                    </div>
+                    <div class="card-info-h">
+                        <h4>Repz Your Style</h4>
+                        <span>Recap 2023</span>
                     </div>
                 </div>
             </div>
+        </div>
 
         </div>
     </section>
@@ -2533,9 +2507,12 @@
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
             <button class="modal-close" aria-label="Close" onclick="closeProjectModal()">×</button>
             <div class="project-viewport">
-                <button class="carousel-btn prev" aria-label="Previous" onclick="projectPrev()">‹</button>
-                <img id="project-slide" alt="Project slide" />
-                <button class="carousel-btn next" aria-label="Next" onclick="projectNext()">›</button>
+                <button class="carousel-btn prev" aria-label="Previous" onclick="projectPrev(event)">‹</button>
+                <div id="project-media-container"
+                    style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+                    <img id="project-slide" alt="Project slide" />
+                </div>
+                <button class="carousel-btn next" aria-label="Next" onclick="projectNext(event)">›</button>
             </div>
             <div class="project-caption">
                 <h3 id="project-modal-title">Project</h3>
@@ -2802,38 +2779,70 @@
             projectSlides = images.length ? images : ['assets/android-chrome-192x192.png'];
             projectIndex = 0;
             const modal = document.getElementById('project-modal');
-            const imgEl = modal.querySelector('#project-slide');
             const titleEl = modal.querySelector('#project-modal-title');
             const descEl = modal.querySelector('#project-modal-desc');
             titleEl.textContent = title;
             descEl.textContent = desc;
-            imgEl.src = projectSlides[projectIndex];
+
+            updateProjectMedia();
+
             modal.classList.add('open');
             modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         }
+
+        function updateProjectMedia() {
+            const container = document.getElementById('project-media-container');
+            const source = projectSlides[projectIndex];
+            const isVideo = source.toLowerCase().endsWith('.webm') || source.toLowerCase().endsWith('.mp4');
+
+            container.innerHTML = '';
+            if (isVideo) {
+                const video = document.createElement('video');
+                video.src = source;
+                video.controls = true;
+                video.autoplay = true;
+                video.muted = false; // User wants to hear it if they open it
+                video.id = 'project-slide';
+                container.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = source;
+                img.id = 'project-slide';
+                img.alt = 'Project slide';
+                container.appendChild(img);
+            }
+        }
+
         function closeProjectModal() {
             const modal = document.getElementById('project-modal');
             modal.classList.remove('open');
             modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto';
+            // Stop any playing video
+            const container = document.getElementById('project-media-container');
+            container.innerHTML = '';
         }
-        function projectNext() {
+        function projectNext(e) {
+            if (e) e.stopPropagation();
             if (!projectSlides.length) return;
             projectIndex = (projectIndex + 1) % projectSlides.length;
-            document.getElementById('project-slide').src = projectSlides[projectIndex];
+            updateProjectMedia();
         }
-        function projectPrev() {
+        function projectPrev(e) {
+            if (e) e.stopPropagation();
             if (!projectSlides.length) return;
             projectIndex = (projectIndex - 1 + projectSlides.length) % projectSlides.length;
-            document.getElementById('project-slide').src = projectSlides[projectIndex];
+            updateProjectMedia();
         }
         // Close on overlay click and Escape; navigate with arrow keys
         (function () {
-            const overlay = document.getElementById('project-modal');
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) closeProjectModal();
+            const modal = document.getElementById('project-modal');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeProjectModal();
             });
             window.addEventListener('keydown', (e) => {
-                const isOpen = overlay.classList.contains('open');
+                const isOpen = modal.classList.contains('open');
                 if (!isOpen) return;
                 if (e.key === 'Escape') closeProjectModal();
                 if (e.key === 'ArrowRight') projectNext();
