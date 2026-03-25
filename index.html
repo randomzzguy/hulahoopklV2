@@ -4,7 +4,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hulahoop — Creative Marketing</title>
+    <title>Hulahoop Creative Marketing</title>
+    <style>
+/* General Body & Typography */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: #EAEAEA;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Orbitron', sans-serif;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+a {
+    color: #6A4CFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #8A6CFF;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.preloader-logo {
+    width: 150px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 2rem;
+}
+
+.navbar-logo {
+    height: 40px;
+    transition: height 0.3s ease;
+}
+
+.navbar.scrolled .navbar-logo {
+    height: 35px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: #EAEAEA;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6A4CFF;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #6A4CFF;
+    width: 0%;
+    z-index: 1001;
+    transition: width 0.1s linear;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Buttons */
+.btn-dynamic {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary-dynamic {
+    background-color: #6A4CFF;
+    color: #fff;
+}
+
+.btn-primary-dynamic:hover {
+    background-color: #8A6CFF;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(106, 76, 255, 0.3);
+}
+
+/* Footer */
+.footer-modern {
+    padding: 2rem;
+    background: #0a0a0a;
+    border-top: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    height: 40px;
+}
+
+.footer-info {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.footer-ssm {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.footer-social-media {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    height: 24px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    stroke: #fff; /* Add this line */
+}
+
+.social-icon:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -2223,7 +2476,7 @@
             <h1><span class="text-gradient reveal-animation" style="animation-delay: 0.3s;">Creative & Culture</span>
             </h1>
             <div class="hero-cta-group reveal-animation" style="animation-delay: 0.6s;">
-                <a href="#services" class="btn-dynamic btn-primary-dynamic">Explore Services →</a>
+                <a href="#services" class="btn-dynamic btn-primary-dynamic">Explore Services Ã¢â€ â€™</a>
                 <a href="#portfolio" class="btn-dynamic btn-outline-dynamic">View Portfolio</a>
             </div>
 
@@ -2304,7 +2557,7 @@
             <div class="section-intro reveal-animation">
                 <div class="section-header" style="margin: 0 auto;">
                     <h2>Our <span class="highlight-word">Expertise</span></h2>
-                    <p>Comprehensive digital solutions designed to elevate your brand and drive measurable growth</p>
+                    <p>Smart digital and event solutions to grow your brand</p>
                 </div>
             </div>
             <div class="container hover-cards">
@@ -2320,7 +2573,7 @@
                     </div>
                     <div class="face face2">
                         <div class="content">
-                            <p>Create compelling corporate videos that drive brand awareness and engagement.</p>
+                            <p>Strategic video production for brand awareness and digital growth.</p>
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Corporate Video')">Inquire</a>
@@ -2336,38 +2589,16 @@
                                 <img src="assets/marketingBW.svg" alt="Marketing icon BW" class="icon-bw" />
                                 <img src="assets/marketing.svg" alt="Marketing icon color" class="icon-color" />
                             </div>
-                            <h3>Social Media Management</h3>
+                            <h3>Social Media Creative</h3>
                         </div>
                     </div>
                     <div class="face face2">
                         <div class="content">
-                            <p>Strategic management that builds communities and drives engagement across platforms.</p>
+                            <p>Creative social media content that attracts and engages customers.</p>
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Social Media Management')">Inquire</a>
                                 <a href="#portfolio-social" class="btn-sm btn-outline-sm">See Work</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card reveal-animation">
-                    <div class="face face1">
-                        <div class="content">
-                            <div class="icon-wrap">
-                                <img src="assets/talentBW.svg" alt="Talent icon BW" class="icon-bw" />
-                                <img src="assets/talent.svg" alt="Talent icon color" class="icon-color" />
-                            </div>
-                            <h3>Digital Talent</h3>
-                        </div>
-                    </div>
-                    <div class="face face2">
-                        <div class="content">
-                            <p>AI-driven face replacement: swap a model’s face with an AI-generated persona while
-                                preserving realism.</p>
-                            <div class="card-actions">
-                                <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
-                                    onclick="openContactModal(event, 'Digital Talent')">Inquire</a>
-                                <a href="#portfolio-talent" class="btn-sm btn-outline-sm">See Work</a>
                             </div>
                         </div>
                     </div>
@@ -2384,7 +2615,7 @@
                     </div>
                     <div class="face face2">
                         <div class="content">
-                            <p>End-to-end planning and execution for memorable brand events and activations.</p>
+                            <p>We plan and run events that bring your brand to life.</p>
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Event Management')">Inquire</a>
@@ -2405,7 +2636,7 @@
                     </div>
                     <div class="face face2">
                         <div class="content">
-                            <p>Build strategic partnerships and co-create campaigns that amplify reach.</p>
+                            <p>We connect brands to create bigger, more impactful campaigns.</p>
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Collaborations')">Inquire</a>
@@ -2425,224 +2656,10 @@
             <div class="section-intro reveal-animation">
                 <div class="section-header" style="margin: 0 auto;">
                     <h2>Our <span class="highlight-word">Portfolio</span></h2>
-                    <p>Explore our recent work across all disciplines</p>
+                    <p>Where digital creativity meets world-class event management.</p>
                 </div>
             </div>
-            <!-- Row 0: Corporate Video -->
-            <div class="portfolio-row reveal-animation" id="portfolio-video">
-                <div class="portfolio-row-header">
-                    <h3>Corporate Video</h3>
-                    <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
-                </div>
-                <div class="horizontal-scroll-container">
-                    <!-- Project 1: Adamas Gimmick -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Adamas Gimmick"
-                        data-desc="High-impact corporate gimmick video for Adamas."
-                        data-images="assets/portfolio/CVideo/adamas_gimmick.webm">
-                        <div class="card-image-h">
-                            <img src="assets/portfolio/CVideo/adamas_gimmick_thumb.webp" alt="Adamas Gimmick">
-                            <div class="video-badge-h">Video</div>
-                        </div>
-                        <div class="card-info-h">
-                            <h4>Adamas Gimmick</h4>
-                            <span>Corporate Video</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 1: Social Media Management -->
-            <div class="portfolio-row reveal-animation" id="portfolio-social">
-                <div class="portfolio-row-header">
-                    <h3>Social Media Management</h3>
-                    <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
-                </div>
-                <div class="horizontal-scroll-container">
-                    <!-- Project 1: PYY -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="PYY Social Management"
-                        data-desc="Strategic social media management and content for PYY."
-                        data-images="assets/marketing.svg">
-                        <div class="card-image-h">
-                            <img src="assets/marketing.svg" alt="PYY">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>PYY</h4>
-                            <span>SMM</span>
-                        </div>
-                    </div>
-                    <!-- Project 2: SWC -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="SWC Social Management"
-                        data-desc="Comprehensive community growth and content strategy for SWC."
-                        data-images="assets/marketingBW.svg">
-                        <div class="card-image-h">
-                            <img src="assets/marketingBW.svg" alt="SWC">
-                        </div>
-                        <div class="card-info-h">
-                            <h4>SWC</h4>
-                            <span>SMM</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 2: Digital Talent -->
-            <div class="portfolio-row reveal-animation" id="portfolio-talent">
-                <div class="portfolio-row-header">
-                    <h3>Digital Talent</h3>
-                    <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
-                </div>
-                <div class="horizontal-scroll-container">
-                    <!-- Project 1: AI Sample DTs -->
-                    <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="AI Sample DTs (Bella)"
-                        data-desc="AI-driven face replacement showcase featuring Bella."
-                        data-images="assets/portfolio/DT/bella_orig.webp|assets/portfolio/DT/face_orig.webp|assets/portfolio/DT/bella_enhanced.webp|assets/portfolio/DT/face_gen.webp">
-                        <div class="card-image-h">
-                            <img src="assets/portfolio/DT/bella_enhanced.webp" alt="Bella AI Showcase">
-                            <div class="video-badge-h">AI Tech</div>
-                        </div>
-                        <div class="card-info-h">
-                            <h4>AI Sample DTs</h4>
-                            <span>Face Replacement</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Row 3: Event Management -->
-        <div class="portfolio-row reveal-animation" id="portfolio-events">
-            <div class="portfolio-row-header">
-                <h3>Event Management</h3>
-                <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
-            </div>
-            <div class="horizontal-scroll-container">
-                <!-- Project 1: Hari Wilayah 2023 -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Hari Wilayah 2023 (DBKL)"
-                    data-desc="Dance Battle - KOTS PROMO REELS showcased for Hari Wilayah."
-                    data-images="assets/portfolio/EM/kots_reels.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/EM/kots_reels_thumb.webp" alt="Hari Wilayah 2023">
-                        <div class="video-badge-h">Reel</div>
-                    </div>
-                    <div class="card-info-h">
-                        <h4>Hari Wilayah 2023</h4>
-                        <span>Dance Battle</span>
-                    </div>
-                </div>
-                <!-- Project 2: DBKL Teh Hijau -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="DBKL Teh Hijau"
-                    data-desc="Event profile reel for DBKL Teh Hijau - July 2024."
-                    data-images="assets/portfolio/EM/teh_hijau.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/EM/teh_hijau_thumb.webp" alt="DBKL Teh Hijau">
-                        <div class="video-badge-h">Event Reel</div>
-                    </div>
-                    <div class="card-info-h">
-                        <h4>DBKL Teh Hijau</h4>
-                        <span>July 2024</span>
-                    </div>
-                </div>
-                <!-- Project 3: Hari Wilayah KL 2025 -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Hari Wilayah KL 2025"
-                    data-desc="Official coverage for Hari Wilayah KL 2025."
-                    data-images="assets/portfolio/EM/hari_wilayah_2025.webp">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/EM/hari_wilayah_2025.webp" alt="Hari Wilayah KL 2025">
-                    </div>
-                    <div class="card-info-h">
-                        <h4>Hari Wilayah KL 2025</h4>
-                        <span>Event</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Row 4: Collaborations -->
-        <div class="portfolio-row reveal-animation" id="portfolio-collabs">
-            <div class="portfolio-row-header">
-                <h3>Collaborations</h3>
-                <div class="scroll-hint">Drag to scroll <span class="arrow">→</span></div>
-            </div>
-            <div class="horizontal-scroll-container">
-                <!-- Project 1: JDT Nike Home Away Jersey Launch -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="JDT Nike 2023 Launch"
-                    data-desc="Graffmapping + Neon LED reveal for JDT Nike Home Away Jersey Launch 2023."
-                    data-images="assets/portfolio/Collabs/jdt_reels.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/Collabs/jdt_reels_thumb.webp" alt="JDT Nike Launch">
-                        <div class="video-badge-h">Mapping</div>
-                    </div>
-                    <div class="card-info-h">
-                        <h4>JDT Nike Launch</h4>
-                        <span>Graffmapping</span>
-                    </div>
-                </div>
-                <!-- Project 2: Pelancaran Rakan Muda by PMX -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Rakan Muda (PMX)"
-                    data-desc="Launch of 'Nafas Baharu Rakan Muda' by the Prime Minister."
-                    data-images="assets/portfolio/Collabs/rakan_muda_pmx.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/Collabs/rakan_muda_pmx_thumb.webp" alt="Rakan Muda Launch">
-                        <div class="video-badge-h">Reel</div>
-                    </div>
-                    <div class="card-info-h">
-                        <h4>Rakan Muda</h4>
-                        <span>PMX Launch</span>
-                    </div>
-                </div>
-                <!-- Project 3: Anugerah Sukan Negara 2022 -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="ASN 2022 (MSN)"
-                    data-desc="Anugerah Sukan Negara 2022 Zeppo Reel for MSN."
-                    data-images="assets/portfolio/Collabs/zeppo_reel.webm|assets/portfolio/Collabs/zeppo_reel_2.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/Collabs/zeppo_reel_thumb.webp" alt="ASN 2022">
-                    </div>
-                    <div class="card-info-h">
-                        <h4>ASN 2022</h4>
-                        <span>MSN Awards</span>
-                    </div>
-                </div>
-                <!-- Project 4: Santapan Negara with Philippines President -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Santapan Negara"
-                    data-desc="Official visit and dinner with the President of Philippines at Istana Negara."
-                    data-images="assets/portfolio/Collabs/santapan_negara.webm|assets/portfolio/Collabs/collab_image_1.webp">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/Collabs/santapan_negara_thumb.webp" alt="Santapan Negara">
-                    </div>
-                    <div class="card-info-h">
-                        <h4>Santapan Negara</h4>
-                        <span>Istana Negara</span>
-                    </div>
-                </div>
-                <!-- Project 5: JDT Decade of Dominance -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="JDT Decade of Dominance"
-                    data-desc="Fan Fest 2023 celebration for JDT's Decade of Dominance."
-                    data-images="assets/portfolio/Collabs/jdt_decade_1.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/Collabs/jdt_decade_1_thumb.webp" alt="JDT Decade">
-                        <div class="video-badge-h">Fan Fest</div>
-                    </div>
-                    <div class="card-info-h">
-                        <h4>JDT Decade</h4>
-                        <span>Fan Fest 2023</span>
-                    </div>
-                </div>
-                <!-- Project 6: Repz Your Style 2023 -->
-                <div class="portfolio-card-h" onclick="openProjectModal(event)" data-title="Repz Your Style 2023"
-                    data-desc="Recap reel for the Repz Your Style 2023 event."
-                    data-images="assets/portfolio/Collabs/rys_2023.webm">
-                    <div class="card-image-h">
-                        <img src="assets/portfolio/Collabs/rys_2023_thumb.webp" alt="RYS 2023">
-                    </div>
-                    <div class="card-info-h">
-                        <h4>Repz Your Style</h4>
-                        <span>Recap 2023</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        </div>
+ </div>
     </section>
 
     <!-- Kelab Belia Dedicated Section -->
@@ -2650,8 +2667,8 @@
         <div class="services-wrapper">
             <div class="section-intro reveal-animation">
                 <div class="section-header" style="margin: 0 auto 4rem auto;">
-                    <h2>KELAB <span class="highlight-word">BELIA</span></h2>
-                    <p>Empowering youth through movement, intellectual growth, and creative leadership.</p>
+                    <h2>Kelab <span class="highlight-word">Belia</span></h2>
+                    <p>A Hulahoop Creative & Culture initiative with 3 associations</p>
                 </div>
             </div>
             <div class="kelab-grid">
@@ -2659,33 +2676,30 @@
                 <div class="glass-morphism kelab-card reveal-animation">
                     <div class="kelab-image-wrapper">
                         <img src="assets/kelabLogos/progresifClearBG.png" alt="Kelab Belia Progresif">
-                        <div class="kelab-badge">Dance & Sport</div>
                     </div>
                     <div class="kelab-info">
                         <h3>Kelab Belia Progresif Damansara</h3>
-                        <p>Promoting active living and community engagement through the power of movement.</p>
+                        <p>Empowering youth through active lifestyles and community-driven sports.</p>
                     </div>
                 </div>
                 <!-- Card 2: Inspirasi -->
                 <div class="glass-morphism kelab-card reveal-animation">
                     <div class="kelab-image-wrapper">
                         <img src="assets/kelabLogos/inspirasi.png" alt="Inspirasi">
-                        <div class="kelab-badge">Intellectual</div>
                     </div>
                     <div class="kelab-info">
                         <h3>Kelab Belia Inspirasi</h3>
-                        <p>Cultivating critical thinking through debate competitions and knowledge sharing.</p>
+                        <p>Advancing youth potential through intellectual growth and educational empowerment.</p>
                     </div>
                 </div>
                 <!-- Card 3: HQ -->
                 <div class="glass-morphism kelab-card reveal-animation">
                     <div class="kelab-image-wrapper">
                         <img src="assets/kelabLogos/mop.PNG" alt="HQ">
-                        <div class="kelab-badge">MOP</div>
                     </div>
                     <div class="kelab-info">
-                        <h3>Ministry of Pickleball</h3>
-                        <p>Where we take pickleball seriously.</p>
+                        <h3>Motion Of Pickleball (MOP)</h3>
+                        <p>Your premier destination for professional pickleball events and community play.</p>
                     </div>
                 </div>
             </div>
@@ -2695,14 +2709,14 @@
     <!-- Project Modal -->
     <div id="project-modal" class="modal-overlay project-modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeProjectModal()">×</button>
+            <button class="modal-close" aria-label="Close" onclick="closeProjectModal()">Ãƒâ€”</button>
             <div class="project-viewport">
-                <button class="carousel-btn prev" aria-label="Previous" onclick="projectPrev(event)">‹</button>
+                <button class="carousel-btn prev" aria-label="Previous" onclick="projectPrev(event)">Ã¢â‚¬Â¹</button>
                 <div id="project-media-container"
                     style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
                     <img id="project-slide" alt="Project slide" />
                 </div>
-                <button class="carousel-btn next" aria-label="Next" onclick="projectNext(event)">›</button>
+                <button class="carousel-btn next" aria-label="Next" onclick="projectNext(event)">Ã¢â‚¬Âº</button>
             </div>
             <div class="project-caption">
                 <h3 id="project-modal-title">Project</h3>
@@ -2716,8 +2730,8 @@
         <div class="cta-inner">
             <h2 class="text-gradient">Ready to create something extraordinary?</h2>
             <div class="contact-inline-info">
-                <p>Start your digital transformation journey today. Our team will reach out within 24 hours.</p>
-                <p>Alternatively, you can use the following email address to contact us: <a
+                <p>LetÃ¢â‚¬â„¢s Work Together! Start Your Journey and get a response within 24 hours.</p>
+                <p>Connect with us today or reach out via email:<a
                         href="mailto:hello@hulahoopkl.com">hello@hulahoopkl.com</a></p>
             </div>
             <a href="#contact" class="btn-dynamic btn-primary-dynamic" onclick="openContactModal(event)">GET IN
@@ -2727,7 +2741,7 @@
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">×</button>
+            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">Ãƒâ€”</button>
             <h3 id="contact-modal-title">Quick Contact</h3>
             <p class="required-note">* All fields are required</p>
             <form class="modal-form" id="contact-form" onsubmit="submitContactForm(event)" novalidate>
@@ -2783,6 +2797,14 @@
     <!-- Footer -->
     <footer class="footer-modern">
         <img src="assets/HHLogo.svg" alt="Hulahoop logo" class="footer-logo" />
+        <div class="footer-social-media">
+            <a href="https://www.instagram.com/hulahoop.x" target="_blank">
+                <img src="assets/socials/instagram.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.facebook.com/people/Hulahoop-Creative/61584607871136/#" target="_blank">
+                <img src="assets/socials/facebook.svg" alt="Facebook" class="social-icon">
+            </a>
+        </div>
         &copy; 2026 Hulahoop Creative Marketing. All rights reserved.
         SSM#: RA0058085-M
     </footer>
