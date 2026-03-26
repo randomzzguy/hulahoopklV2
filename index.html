@@ -2577,7 +2577,6 @@ a:hover {
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Corporate Video')">Inquire</a>
-                                <a href="#portfolio-video" class="btn-sm btn-outline-sm">See Work</a>
                             </div>
                         </div>
                     </div>
@@ -2598,7 +2597,6 @@ a:hover {
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Social Media Management')">Inquire</a>
-                                <a href="#portfolio-social" class="btn-sm btn-outline-sm">See Work</a>
                             </div>
                         </div>
                     </div>
@@ -2619,7 +2617,6 @@ a:hover {
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Event Management')">Inquire</a>
-                                <a href="#portfolio-events" class="btn-sm btn-outline-sm">See Work</a>
                             </div>
                         </div>
                     </div>
@@ -2640,7 +2637,6 @@ a:hover {
                             <div class="card-actions">
                                 <a href="#contact" class="btn-sm btn-primary-sm" data-open-modal="true"
                                     onclick="openContactModal(event, 'Collaborations')">Inquire</a>
-                                <a href="#portfolio-collabs" class="btn-sm btn-outline-sm">See Work</a>
                             </div>
                         </div>
                     </div>
@@ -2741,7 +2737,7 @@ a:hover {
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">Ãƒâ€”</button>
+            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">X</button>
             <h3 id="contact-modal-title">Quick Contact</h3>
             <p class="required-note">* All fields are required</p>
             <form class="modal-form" id="contact-form" onsubmit="submitContactForm(event)" novalidate>
@@ -2773,7 +2769,6 @@ a:hover {
                         <option value="">Select Service *</option>
                         <option value="corporate-video">Corporate Video</option>
                         <option value="social-media">Social Media Management</option>
-                        <option value="digital-talent">Digital Talent</option>
                         <option value="event-management">Event Management</option>
                         <option value="collaborations">Collaborations</option>
                     </select>
