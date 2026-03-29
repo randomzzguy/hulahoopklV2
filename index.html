@@ -2688,25 +2688,6 @@ a:hover {
         </div>
     </section>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal-overlay project-modal" aria-hidden="true">
-        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeProjectModal()">Ãƒâ€”</button>
-            <div class="project-viewport">
-                <button class="carousel-btn prev" aria-label="Previous" onclick="projectPrev(event)">Ã¢â‚¬Â¹</button>
-                <div id="project-media-container"
-                    style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
-                    <img id="project-slide" alt="Project slide" />
-                </div>
-                <button class="carousel-btn next" aria-label="Next" onclick="projectNext(event)">Ã¢â‚¬Âº</button>
-            </div>
-            <div class="project-caption">
-                <h3 id="project-modal-title">Project</h3>
-                <p id="project-modal-desc">Description</p>
-            </div>
-        </div>
-    </div>
-
     <!-- CTA -->
     <section class="cta-block" id="contact">
         <div class="cta-inner">
@@ -2740,6 +2721,10 @@ a:hover {
                     <span class="error-text">Please enter a valid email address</span>
                 </div>
                 <div class="form-group">
+                    <input type="tel" name="contact" placeholder="Contact (WhatsApp) *" required />
+                    <span class="error-text">Please enter your contact number (WhatsApp Preferred)</span>
+                </div>
+                <div class="form-group">
                     <select name="budget" required>
                         <option value="">Budget (RM) *</option>
                         <option value="1k-3k">RM 1,000 - RM 3,000</option>
@@ -2747,6 +2732,7 @@ a:hover {
                         <option value="5k-10k">RM 5,000 - RM 10,000</option>
                         <option value="10k-20k">RM 10,000 - RM 20,000</option>
                         <option value="gt20k">RM 20,000+</option>
+                        <option value="other">Other</option>
                     </select>
                     <span class="error-text">Please select a budget</span>
                 </div>
@@ -2757,6 +2743,8 @@ a:hover {
                         <option value="social-media">Social Media Management</option>
                         <option value="event-management">Event Management</option>
                         <option value="collaborations">Collaborations</option>
+                        <option value="multiple">Multiple Services</option>
+                        <option value="other">Other</option>
                     </select>
                     <span class="error-text">Please select a service</span>
                 </div>
@@ -2876,7 +2864,6 @@ a:hover {
                     switch (name) {
                         case 'Corporate Video': return 'corporate-video';
                         case 'Social Media Management': return 'social-media';
-                        case 'Digital Talent': return 'digital-talent';
                         case 'Event Management': return 'event-management';
                         case 'Collaborations': return 'collaborations';
                         default: return '';
