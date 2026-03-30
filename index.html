@@ -1425,8 +1425,9 @@ a:hover {
         }
 
         .contact-inline-info {
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             color: #e5e7eb;
+            font-size: 1.1rem;
             text-align: center;
         }
 
@@ -1443,12 +1444,12 @@ a:hover {
         /* Contact section spacing tweaks */
         .cta-block .contact-inline-info p {
             margin: 0 0 0.25rem 0;
-            line-height: 1.35;
+            line-height: 1.45;
             text-align: center;
         }
 
         .cta-block .btn-primary-dynamic {
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
         }
 
         /* Contact Modal */
@@ -2399,9 +2400,9 @@ a:hover {
             </div>
 
             <!-- Landscape Video Placeholder -->
-            <div class="video-placeholder reveal-animation" style="margin-bottom: 4rem; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: #1a1a1a;">
-                <video controls style="width: 100%; height: auto; display: block;">
-                    <source src="assets/mock-landscape-video.mp4" type="video/mp4">
+            <div class="video-placeholder reveal-animation" style="margin-bottom: 4rem; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: #1a1a1a; max-width: 1200px; margin-left: auto; margin-right: auto;">
+                <video id="portfolio-video" controls preload="metadata" muted autoplay style="width: 100%; height: auto; display: block;">
+                    <source src="assets/HH_SHOWREEL.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -2469,7 +2470,7 @@ a:hover {
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">✕</button>
+            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¢</button>
             <h3 id="contact-modal-title">Quick Contact</h3>
             <p class="required-note">* All fields are required</p>
             <form class="modal-form" id="contact-form" onsubmit="submitContactForm(event)" novalidate>
@@ -2837,6 +2838,22 @@ a:hover {
                 if (e.key === 'ArrowRight') projectNext();
                 if (e.key === 'ArrowLeft') projectPrev();
             });
+
+            // Scroll-triggered video autoplay/pause for portfolio video
+            const portfolioVideo = document.getElementById('portfolio-video');
+            if (portfolioVideo) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            portfolioVideo.play();
+                        } else {
+                            portfolioVideo.pause();
+                        }
+                    });
+                }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
+
+                observer.observe(portfolioVideo);
+            }
         })();
     </script>
 </body>
