@@ -247,10 +247,10 @@ a:hover {
 }
 
 .social-icon {
-    height: 24px;
+    height: 34px;
     filter: grayscale(100%);
     transition: filter 0.3s ease, transform 0.3s ease;
-    stroke: #fff; /* Add this line */
+    stroke: #FFFFFF; /* Add this line */
 }
 
 .social-icon:hover {
@@ -591,7 +591,7 @@ a:hover {
 
         .marquee-content img {
             height: auto;
-            max-height: 48px;
+            max-height: 55px;
             width: auto;
             max-width: 150px;
             object-fit: contain;
@@ -633,7 +633,7 @@ a:hover {
 
         /* About Highlight Section */
         .about-highlight-section {
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             position: relative;
             z-index: 5;
         }
@@ -681,92 +681,6 @@ a:hover {
             }
         }
 
-        /* Team Section */
-        .team-section {
-            padding: 4rem 2rem 8rem 2rem;
-            position: relative;
-            z-index: 5;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .team-card:hover {
-            transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--accent-blue);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        }
-
-        .team-image-wrapper {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 1.75rem auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .team-card:hover .team-image-wrapper {
-            border-color: var(--accent-blue);
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(147, 197, 253, 0.4);
-        }
-
-        .team-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .team-info h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin: 0 0 0.4rem 0;
-            color: #fff;
-            letter-spacing: -0.01em;
-        }
-
-        .team-info p {
-            font-size: 0.9rem;
-            color: var(--accent-blue);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin: 0;
-        }
-
-        @media (max-width: 1100px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .team-section {
-                padding: 2rem 1.5rem 6rem 1.5rem;
-            }
-        }
 
         /* Dynamic Navigation from new.html */
         .dynamic-nav {
@@ -1729,92 +1643,6 @@ a:hover {
             border: 1px solid rgba(239, 68, 68, 0.3);
         }
 
-        /* Project Modal (slideshow) */
-        .project-modal .modal-content {
-            max-width: 1000px;
-            width: 95%;
-            padding: 1rem;
-        }
-
-        .project-viewport {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            overflow: hidden;
-            height: 65vh;
-            min-height: 420px;
-            z-index: 1;
-        }
-
-        .project-viewport img,
-        .project-viewport video {
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-            pointer-events: none;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.35);
-            color: #fff;
-            border: none;
-            border-radius: 9999px;
-            width: 42px;
-            height: 42px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .carousel-btn.prev {
-            left: 1rem;
-        }
-
-        .carousel-btn.next {
-            right: 1rem;
-        }
-
-        .carousel-btn:hover {
-            background: rgba(0, 0, 0, 0.55);
-        }
-
-        .carousel-btn:hover {
-            background: rgba(0, 0, 0, 0.55);
-        }
-
-        .project-caption {
-            margin-top: 0.75rem;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-        }
-
-        .project-caption h3 {
-            margin: 0 0 0.35rem 0;
-        }
-
-        .project-caption p {
-            margin: 0;
-            opacity: 0.9;
-        }
 
         /* Responsive Optimizations */
         @media (max-width: 1024px) {
@@ -1873,7 +1701,6 @@ a:hover {
             .services-modern,
             .about-highlight-section,
             .portfolio-showcase,
-            .testimonials-section,
             .cta-block {
                 padding: 4rem 1.5rem;
             }
@@ -1888,7 +1715,7 @@ a:hover {
             }
 
             .about-card {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1rem;
             }
 
             .testimonial-grid {
@@ -2119,9 +1946,6 @@ a:hover {
         }
 
 
-        /* Numbered Border Timeline (paragraph-based) - Removed as it's no longer used */
-
-        /* Section Header: single translucent rounded rectangle covering title + subtitle */
         .section-header {
             display: inline-block;
             padding: 1rem 1.5rem;
@@ -2144,34 +1968,6 @@ a:hover {
             color: #e5e7eb;
             opacity: 0.85;
             max-width: 700px;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 8rem 2rem;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 2.5rem;
-            border-radius: 20px;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
         }
 
         .quote-icon {
@@ -2489,10 +2285,10 @@ a:hover {
                         <img src="assets/logos/akarea.png" alt="Akarea">
                         <img src="assets/logos/CATS LOGO.png" alt="CATS">
                         <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
-                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
-                        <img src="assets/logos/SWClogo.png" alt="Idoubabe">
+                        <img src="assets/logos/SWClogo.png" alt="SWC">
                         <img src="assets/logos/inspirasi.png" class="logo-lg" alt="Inspirasi">
                         <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">                        
                         <img src="assets/logos/MOPLogo.png" alt="MOP">
                         <img src="assets/logos/pyy logo.png" alt="PYY">
                         <span>CLIENTELE</span>
@@ -2500,10 +2296,10 @@ a:hover {
                         <img src="assets/logos/akarea.png" alt="Akarea">
                         <img src="assets/logos/CATS LOGO.png" alt="CATS">
                         <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
-                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
                         <img src="assets/logos/SWClogo.png" alt="SWC">
                         <img src="assets/logos/inspirasi.png" class="logo-lg" alt="Inspirasi">
                         <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
                         <img src="assets/logos/MOPLogo.png" alt="MOP">
                         <img src="assets/logos/pyy logo.png" alt="PYY">
                     </div>
@@ -2513,10 +2309,10 @@ a:hover {
                         <img src="assets/logos/akarea.png" alt="Akarea">
                         <img src="assets/logos/CATS LOGO.png" alt="CATS">
                         <img src="assets/logos/DBKL LOGO MAIN.png" class="logo-lg" alt="DBKL">
-                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
                         <img src="assets/logos/SWClogo.png" alt="SWC">
                         <img src="assets/logos/inspirasi.png" class="logo-lg" alt="Inspirasi">
                         <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
                         <img src="assets/logos/MOPLogo.png" alt="MOP">
                         <img src="assets/logos/pyy logo.png" alt="PYY">
                         <span>CLIENTELE</span>
@@ -2528,6 +2324,7 @@ a:hover {
                         <img src="assets/logos/SWClogo.png" alt="SWC">
                         <img src="assets/logos/inspirasi.png" class="logo-lg" alt="Inspirasi">
                         <img src="assets/logos/Kelab Belia Progresif Logo.png" class="logo-lg" alt="Kelab Belia">
+                        <img src="assets/logos/DBKL LOGO.png" alt="DBKL">
                         <img src="assets/logos/MOPLogo.png" alt="MOP">
                         <img src="assets/logos/pyy logo.png" alt="PYY">
                     </div>
@@ -2641,6 +2438,15 @@ a:hover {
                     <p>Where digital creativity meets world-class event management.</p>
                 </div>
             </div>
+
+            <!-- Landscape Video Placeholder -->
+            <div class="video-placeholder reveal-animation" style="margin-bottom: 4rem; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: #1a1a1a;">
+                <video controls style="width: 100%; height: auto; display: block;">
+                    <source src="assets/mock-landscape-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
  </div>
     </section>
 
@@ -2704,7 +2510,7 @@ a:hover {
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">X</button>
+            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">✕</button>
             <h3 id="contact-modal-title">Quick Contact</h3>
             <p class="required-note">* All fields are required</p>
             <form class="modal-form" id="contact-form" onsubmit="submitContactForm(event)" novalidate>
@@ -2722,7 +2528,8 @@ a:hover {
                 </div>
                 <div class="form-group">
                     <input type="tel" name="contact" placeholder="Contact (WhatsApp) *" required />
-                    <span class="error-text">Please enter your contact number (WhatsApp Preferred)</span>
+                    <small style="font-style: italic; color: #94a3b8; display: block; margin-top: 0.25rem;">e.g., +60123456789</small>
+                    <span class="error-text">Please enter your contact number</span>
                 </div>
                 <div class="form-group">
                     <select name="budget" required>
@@ -2768,10 +2575,10 @@ a:hover {
         <img src="assets/HHLogo.svg" alt="Hulahoop logo" class="footer-logo" />
         <div class="footer-social-media">
             <a href="https://www.instagram.com/hulahoop.x" target="_blank">
-                <img src="assets/socials/instagram.svg" alt="Instagram" class="social-icon">
+                <img src="assets/socials/instagram.png" alt="Instagram" class="social-icon">
             </a>
             <a href="https://www.facebook.com/people/Hulahoop-Creative/61584607871136/#" target="_blank">
-                <img src="assets/socials/facebook.svg" alt="Facebook" class="social-icon">
+                <img src="assets/socials/facebook.png" alt="Facebook" class="social-icon">
             </a>
         </div>
         &copy; 2026 Hulahoop Creative Marketing. All rights reserved.
