@@ -1930,60 +1930,6 @@ a:hover {
             max-width: 700px;
         }
 
-        .quote-icon {
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.1);
-            line-height: 1;
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-family: serif;
-        }
-
-        .quote-text {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            color: #eef2f7;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .client-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .client-info h5 {
-            margin: 0;
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        .client-info span {
-            font-size: 0.85rem;
-            color: #94a3b8;
-        }
-
-        @media (max-width: 900px) {
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Kelab Belia Section */
         .kelab-belia-section {
             padding: 8rem 2rem;
@@ -2093,25 +2039,6 @@ a:hover {
             }
         }
 
-        /* Mouse Glow */
-        .mouse-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0) 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        body.mouse-active .mouse-glow {
-            opacity: 1;
-        }
 
         /* Button Hover Animations */
         .btn-dynamic {
@@ -2149,7 +2076,6 @@ a:hover {
 
     <!-- Ambient Background -->
     <div class="ambient-bg">
-        <div class="mouse-glow" id="mouse-glow"></div>
         <div class="ambient-blob"></div>
         <!-- Ambient Blobs -->
         <div class="ambient-blob" style="left: -120px; top: 140px;"></div>
@@ -2470,7 +2396,7 @@ a:hover {
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¢</button>
+            <button class="modal-close" aria-label="Close" onclick="closeContactModal()">✕</button>
             <h3 id="contact-modal-title">Quick Contact</h3>
             <p class="required-note">* All fields are required</p>
             <form class="modal-form" id="contact-form" onsubmit="submitContactForm(event)" novalidate>
@@ -2755,106 +2681,22 @@ a:hover {
             if (e.key === 'Escape') closeMobileMenu();
         });
 
-        // Project modal logic (slideshow)
-        let projectSlides = [];
-        let projectIndex = 0;
-        function openProjectModal(e) {
-            if (e) e.preventDefault();
-            const item = e.currentTarget.closest('.portfolio-card-h');
-            if (!item) return;
-            const title = item.dataset.title || 'Project';
-            const desc = item.dataset.desc || '';
-            const images = (item.dataset.images || '').split('|').filter(Boolean);
-            projectSlides = images.length ? images : ['assets/android-chrome-192x192.png'];
-            projectIndex = 0;
-            const modal = document.getElementById('project-modal');
-            const titleEl = modal.querySelector('#project-modal-title');
-            const descEl = modal.querySelector('#project-modal-desc');
-            titleEl.textContent = title;
-            descEl.textContent = desc;
-
-            updateProjectMedia();
-
-            modal.classList.add('open');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function updateProjectMedia() {
-            const container = document.getElementById('project-media-container');
-            const source = projectSlides[projectIndex];
-            const isVideo = source.toLowerCase().endsWith('.webm') || source.toLowerCase().endsWith('.mp4');
-
-            container.innerHTML = '';
-            if (isVideo) {
-                const video = document.createElement('video');
-                video.src = source;
-                video.id = 'project-slide';
-                video.setAttribute('controls', 'controls');
-                video.controls = true;
-                video.autoplay = true;
-                video.muted = false;
-                container.appendChild(video);
-            } else {
-                const img = document.createElement('img');
-                img.src = source;
-                img.id = 'project-slide';
-                img.alt = 'Project slide';
-                container.appendChild(img);
-            }
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('project-modal');
-            modal.classList.remove('open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = 'auto';
-            // Stop any playing video
-            const container = document.getElementById('project-media-container');
-            container.innerHTML = '';
-        }
-        function projectNext(e) {
-            if (e) e.stopPropagation();
-            if (!projectSlides.length) return;
-            projectIndex = (projectIndex + 1) % projectSlides.length;
-            updateProjectMedia();
-        }
-        function projectPrev(e) {
-            if (e) e.stopPropagation();
-            if (!projectSlides.length) return;
-            projectIndex = (projectIndex - 1 + projectSlides.length) % projectSlides.length;
-            updateProjectMedia();
-        }
-        // Close on overlay click and Escape; navigate with arrow keys
-        (function () {
-            const modal = document.getElementById('project-modal');
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeProjectModal();
-            });
-            window.addEventListener('keydown', (e) => {
-                const isOpen = modal.classList.contains('open');
-                if (!isOpen) return;
-                if (e.key === 'Escape') closeProjectModal();
-                if (e.key === 'ArrowRight') projectNext();
-                if (e.key === 'ArrowLeft') projectPrev();
-            });
-
-            // Scroll-triggered video autoplay/pause for portfolio video
-            const portfolioVideo = document.getElementById('portfolio-video');
-            if (portfolioVideo) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            portfolioVideo.play();
-                        } else {
-                            portfolioVideo.pause();
-                        }
-                    });
-                }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
-
-                observer.observe(portfolioVideo);
-            }
-        })();
+                // Scroll-triggered video autoplay/pause for portfolio video
+                const portfolioVideo = document.getElementById('portfolio-video');
+                if (portfolioVideo) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                portfolioVideo.play();
+                            } else {
+                                portfolioVideo.pause();
+                            }
+                        });
+                    }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
+    
+                    observer.observe(portfolioVideo);
+                }
+        </script>
     </script>
 </body>
 <!-- Note: closing html tag below was in the wrong place before; keep script inside body -->
